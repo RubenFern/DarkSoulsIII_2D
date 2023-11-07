@@ -32,3 +32,8 @@
 *.exe
 *.out
 *.app
+
+# others
+debug
+release
+.vs
