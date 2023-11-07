@@ -34,6 +34,9 @@
 *.app
 
 # others
-debug
-release
+Debug
+Debug/*
+Release
+Release/*
 .vs
+.vs/*
