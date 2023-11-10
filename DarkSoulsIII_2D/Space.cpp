@@ -24,7 +24,6 @@ void Space::update() {
         updateMoveLeft(actor);
         updateMoveTop(actor);
         updateMoveDown(actor);
-
     }
 }
 

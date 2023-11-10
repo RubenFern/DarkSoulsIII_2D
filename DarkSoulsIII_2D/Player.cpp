@@ -5,7 +5,7 @@ Player::Player(float x, float y, Game* game)
 
 	orientation = game->orientationDown;
 	state = game->stateMoving;
-
+	
 	aAttackingRight = new Animation("res/actors/player-katana/attack/right.png", 69, 59, 414, 59, 3, 6, false, game);
 	aAttackingLeft = new Animation("res/actors/player-katana/attack/left.png", 69, 59, 414, 59, 3, 6, false, game);
 	aAttackingDown = new Animation("res/actors/player-katana/attack/down.png", 64, 66, 384, 66, 3, 6, false, game);
@@ -110,11 +110,11 @@ void Player::update() {
 }
 
 void Player::moveX(float axis) {
-	vx = axis * 3;
+	vx = axis * 3 * 10;
 }
 
 void Player::moveY(float axis) {
-	vy = axis * 3;
+	vy = axis * 3 * 10;
 }
 
 Projectile* Player::attack() {
@@ -142,14 +142,14 @@ Projectile* Player::attack() {
 	}
 }
 
-void Player::draw(float scrollX) 
+void Player::draw(float scrollX, float scrollY)
 {
 	if (invulnerableTime == 0)
-		animation->draw(x - scrollX, y);
+		animation->draw(x - scrollX, y - scrollY);
 	
 	else 
 		if (invulnerableTime % 10 >= 0 && invulnerableTime % 10 <= 5)
-			animation->draw(x - scrollX, y);
+			animation->draw(x - scrollX, y - scrollY);
 }
 
 void Player::loseLife() {

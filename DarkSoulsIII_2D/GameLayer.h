@@ -38,7 +38,9 @@ public:
 
 	Space* space;
 	float scrollX;
+	float scrollY;
 	int mapWidth;
+	int mapHeight;
 	list<Tile*> tiles;
 
 	Text* textPoints;
