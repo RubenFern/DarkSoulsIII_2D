@@ -400,6 +400,6 @@ FodyWeavers.xsd
 *.app
 
 # others
-.vs\DarkSoulsIII_2D\v17
+!\.vs\DarkSoulsIII_2D\v17
 DarkSoulsIII_2D\Debug
 *.db
