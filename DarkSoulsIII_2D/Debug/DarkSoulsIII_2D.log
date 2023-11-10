@@ -1,2 +1,90 @@
-﻿  LINK : no se encontró C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\Debug\DarkSoulsIII_2D.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+﻿  Actor.cpp
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Actor.cpp(11,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Actor.cpp(12,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Actor.cpp(31,32): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Animation.cpp
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Animation.cpp(11,21): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Animation.cpp(12,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Animation.cpp(13,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Animation.cpp(14,21): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Animation.cpp(29,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Animation.cpp(30,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Animation.cpp(54,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Animation.cpp(62,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Animation.cpp(63,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Background.cpp
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Background.cpp(19,9): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Enemy.cpp
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Enemy.cpp(8,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Enemy.cpp(8,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Enemy.cpp(11,63): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Enemy.cpp(11,56): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Enemy.cpp(76,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Game.cpp
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Game.cpp(68,56): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Game.cpp(68,35): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  GameLayer.cpp
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\GameLayer.cpp(19,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\GameLayer.cpp(24,24): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\GameLayer.cpp(58,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\GameLayer.cpp(59,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\GameLayer.cpp(268,24): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\GameLayer.cpp(275,24): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+  Layer.cpp
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  Main.cpp
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  MenuLayer.cpp
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\MenuLayer.cpp(12,61): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\MenuLayer.cpp(13,69): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\MenuLayer.cpp(103,38): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\MenuLayer.cpp(103,29): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  Player.cpp
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(14,79): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(14,72): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(15,77): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(15,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(16,77): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(16,70): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(17,73): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(17,66): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(19,82): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(19,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(20,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(20,73): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(21,80): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(21,73): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(22,76): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(22,69): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(133,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(133,43): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(148,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp(152,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Projectile.cpp
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  Space.cpp
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Space.cpp(34,30): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Space.cpp(64,26): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Space.cpp(71,30): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Space.cpp(103,26): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Space.cpp(110,30): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Space.cpp(142,26): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Space.cpp(150,30): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Space.cpp(191,26): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  Text.cpp
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Text.cpp(5,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Text.cpp(6,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Tile.cpp
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  Generando código...
   DarkSoulsIII_2D.vcxproj -> C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\Debug\DarkSoulsIII_2D.exe

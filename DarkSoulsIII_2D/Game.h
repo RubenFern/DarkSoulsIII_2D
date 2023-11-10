@@ -10,8 +10,8 @@ using namespace std;
 #include <map> 
 
 // Valores generales
-#define WIDTH 958
-#define HEIGHT 540
+#define WIDTH 1000
+#define HEIGHT 563
 
 #include "Layer.h"
 class Layer;
