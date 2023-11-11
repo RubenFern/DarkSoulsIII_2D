@@ -3,7 +3,7 @@
 #include "Layer.h"
 #include "Player.h"
 #include "Background.h"
-
+#include "Archer.h"
 #include "Enemy.h"
 #include "Projectile.h"
 #include "Text.h"

@@ -1,0 +1,6 @@
+Idle:
+	up, left, rihgt: 	W=34px, H=53px
+	down:			W=36px, H=54px
+
+Walk:
+	

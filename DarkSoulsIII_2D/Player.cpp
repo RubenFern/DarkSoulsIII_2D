@@ -1,29 +1,30 @@
 #include "Player.h"
 
 Player::Player(float x, float y, Game* game)
-	: Actor("res/actors/player-katana/idle/down.png", x, y, 55, 53, game) {
+	: Actor("res/actors/player-katana/idle/down.png", x, y, 37, 53, game) {
 
 	orientation = game->orientationDown;
 	state = game->stateMoving;
 	
-	aAttackingRight = new Animation("res/actors/player-katana/attack/right.png", 69, 59, 414, 59, 3, 6, false, game);
-	aAttackingLeft = new Animation("res/actors/player-katana/attack/left.png", 69, 59, 414, 59, 3, 6, false, game);
-	aAttackingDown = new Animation("res/actors/player-katana/attack/down.png", 64, 66, 384, 66, 3, 6, false, game);
-	aAttackingUp = new Animation("res/actors/player-katana/attack/up.png", 72, 68, 432, 68, 3, 6, false, game);
+	aAttackingRight = new Animation("res/actors/player-katana/attack/right.png", WIDTH_ATTACK_R_L, HEIGHT_ATTACK_R_L, 414, 59, 3, 6, false, game);
+	aAttackingLeft = new Animation("res/actors/player-katana/attack/left.png", WIDTH_ATTACK_R_L, HEIGHT_ATTACK_R_L, 414, 59, 3, 6, false, game);
+	aAttackingDown = new Animation("res/actors/player-katana/attack/down.png", WIDTH_ATTACK_U, HEIGHT_ATTACK_U, 384, 66, 3, 6, false, game);
+	aAttackingUp = new Animation("res/actors/player-katana/attack/up.png", WIDTH_ATTACK_D, HEIGHT_ATTACK_D, 432, 68, 3, 6, false, game);
 
-	aIdleRight = new Animation("res/actors/player-katana/idle/right.png", width, height, 55, 53, 6, 1, true, game);
-	aIdleLeft = new Animation("res/actors/player-katana/idle/left.png", width, height, 55, 53, 6, 1, true, game);
-	aIdleDown = new Animation("res/actors/player-katana/idle/down.png", width, height, 55, 53, 6, 1, true, game);
-	aIdleUp = new Animation("res/actors/player-katana/idle/up.png", width, height, 55, 53, 6, 1, true, game);
+	aIdleRight = new Animation("res/actors/player-katana/idle/right.png", WIDTH_RIGHT, HEIGHT_RIGHT, 55, 53, 6, 1, true, game);
+	aIdleLeft = new Animation("res/actors/player-katana/idle/left.png", WIDTH_LEFT, HEIGHT_LEFT, 55, 53, 6, 1, true, game);
+	aIdleDown = new Animation("res/actors/player-katana/idle/down.png", WIDTH_DOWN, HEIGHT_DOWN, 55, 53, 6, 1, true, game);
+	aIdleUp = new Animation("res/actors/player-katana/idle/up.png", WIDTH_UP, HEIGHT_UP, 55, 53, 6, 1, true, game);
 	
-	aRunningRight = new Animation("res/actors/player-katana/walk/right.png", width, height, 495, 53, 3, 9, true, game);
-	aRunningLeft = new Animation("res/actors/player-katana/walk/left.png", width, height, 495, 53, 3, 9, true, game);
-	aRunningDown = new Animation("res/actors/player-katana/walk/down.png", width, height, 495, 53, 3, 9, true, game);
-	aRunningUp = new Animation("res/actors/player-katana/walk/up.png", width, height, 495, 53, 3, 9, true, game);
+	aRunningRight = new Animation("res/actors/player-katana/walk/right.png", WIDTH_RIGHT, HEIGHT_RIGHT, 495, 53, 3, 9, true, game);
+	aRunningLeft = new Animation("res/actors/player-katana/walk/left.png", WIDTH_LEFT, HEIGHT_LEFT, 495, 53, 3, 9, true, game);
+	aRunningDown = new Animation("res/actors/player-katana/walk/down.png", WIDTH_DOWN, HEIGHT_DOWN, 333, 53, 3, 9, true, game);
+	aRunningUp = new Animation("res/actors/player-katana/walk/up.png", WIDTH_UP, HEIGHT_UP, 333, 53, 3, 9, true, game);
+
+	aDeath = new Animation("res/actors/player-katana/death/death.png", WIDTH_DEATH, HEIGHT_DEATH, 210, 53, 6, 6, false, game);
 
 	animation = aIdleDown;
 }
-
 
 void Player::update() {
 	if (invulnerableTime > 0)
@@ -110,11 +111,11 @@ void Player::update() {
 }
 
 void Player::moveX(float axis) {
-	vx = axis * 3 * 10;
+	vx = axis * 3;
 }
 
 void Player::moveY(float axis) {
-	vy = axis * 3 * 10;
+	vy = axis * 3;
 }
 
 Projectile* Player::attack() {

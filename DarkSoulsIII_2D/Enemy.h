@@ -6,13 +6,33 @@
 class Enemy : public Actor
 {
 public:
-	Enemy(float x, float y, Game* game);
-	void draw(float scrollX = 0, float scrollY = 0) override; // Va a sobrescribir
-	void update();
-	void impacted(); // Recibe impacto y pone animación de morir
+	Enemy(string filename, float x, float y, int width, int height, Game* game);
+	virtual void draw(float scrollX = 0, float scrollY = 0) override; // Va a sobrescribir
+	virtual void update();
+	virtual void impacted(); // Recibe impacto y pone animación de morir
 	float vxIntelligence;
 	int state;
-	Animation* aDying;
-	Animation* aMoving;
+	int attackCadence = 30;
+	int attackTime = 0;
+	int life = 3;
+	int orientation;
+
+	Animation* aIdleRight;
+	Animation* aIdleLeft;
+	Animation* aIdleUp;
+	Animation* aIdleDown;
+
+	Animation* aRunningRight;
+	Animation* aRunningLeft;
+	Animation* aRunningUp;
+	Animation* aRunningDown;
+
+	Animation* aAttackingRight;
+	Animation* aAttackingLeft;
+	Animation* aAttackingUp;
+	Animation* aAttackingDown;
+
+	Animation* aDeath;
+
 	Animation* animation; // Referencia a la animación mostrada
 };

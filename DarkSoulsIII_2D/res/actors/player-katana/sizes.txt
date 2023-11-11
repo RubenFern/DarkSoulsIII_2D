@@ -1,0 +1,11 @@
+Idle:
+	down, up: 		W=37px, H=53px
+	left, right:	W=55px, H=53px
+
+Attack:
+	down: 		W=64px, H=66px
+	left/right:	W=69px, H=59px
+	Up:		W=72px, H=68px
+
+Death:
+	W=35px, H=53px

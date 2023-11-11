@@ -25,6 +25,24 @@
     <Filter Include="Archivos de encabezado\Layers">
       <UniqueIdentifier>{a870d71f-59f6-4879-8247-54f6d82ad844}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Actors\Enemies">
+      <UniqueIdentifier>{6f0a130c-3a6b-4fde-86c1-eca16810451a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Actors\Weapons">
+      <UniqueIdentifier>{64961ccc-91cb-45cf-89bd-532dcf7e036a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Actors\Enemies">
+      <UniqueIdentifier>{7211fdc9-026b-44dc-b3a7-bf873ba024bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Actors\Weapons">
+      <UniqueIdentifier>{24573423-4cce-4e7c-9160-875e0dafceab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Actors\Objects">
+      <UniqueIdentifier>{3204b814-6704-4d70-a8a1-445bb971b076}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Actors\Objects">
+      <UniqueIdentifier>{8562755d-d5ec-4436-8ae3-29c67b6dab9c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -54,9 +72,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>Archivos de origen\Actors</Filter>
     </ClCompile>
-    <ClCompile Include="Projectile.cpp">
-      <Filter>Archivos de origen\Actors</Filter>
-    </ClCompile>
     <ClCompile Include="Text.cpp">
       <Filter>Archivos de origen\Actors</Filter>
     </ClCompile>
@@ -71,6 +86,12 @@
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>Archivos de origen\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Archivos de origen\Actors\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="Archer.cpp">
+      <Filter>Archivos de origen\Actors\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,9 +119,6 @@
     <ClInclude Include="Player.h">
       <Filter>Archivos de encabezado\Actors</Filter>
     </ClInclude>
-    <ClInclude Include="Projectile.h">
-      <Filter>Archivos de encabezado\Actors</Filter>
-    </ClInclude>
     <ClInclude Include="Text.h">
       <Filter>Archivos de encabezado\Actors</Filter>
     </ClInclude>
@@ -115,6 +133,12 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Archivos de encabezado\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Archivos de encabezado\Actors\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Archer.h">
+      <Filter>Archivos de encabezado\Actors\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
