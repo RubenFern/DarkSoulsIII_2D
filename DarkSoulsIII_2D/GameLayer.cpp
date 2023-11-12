@@ -218,8 +218,9 @@ void GameLayer::update() {
 
 	list<Enemy*> deleteEnemies;
 	list<Projectile*> deleteProjectiles;
+	list<Projectile*> deleteProjectilesEnemies;
 	for (auto const& projectile : projectiles) {
-		if (projectile->isInRender(scrollX) == false || projectile->vx == 0) {
+		if (projectile->isInRender(scrollX, scrollY) == false || projectile->vx == 0) {
 
 			bool pInList = std::find(deleteProjectiles.begin(),
 				deleteProjectiles.end(),
@@ -227,6 +228,19 @@ void GameLayer::update() {
 
 			if (!pInList) {
 				deleteProjectiles.push_back(projectile);
+			}
+		}
+	}
+
+	for (auto const& projectileEnemy : projectilesEnemies) {
+		if (projectileEnemy->isInRender(scrollX, scrollY) == false || projectileEnemy->vx == 0) {
+
+			bool pInList = std::find(deleteProjectilesEnemies.begin(),
+								deleteProjectilesEnemies.end(),
+								projectileEnemy) != deleteProjectilesEnemies.end();
+
+			if (!pInList) {
+				deleteProjectilesEnemies.push_back(projectileEnemy);
 			}
 		}
 	}
@@ -277,6 +291,12 @@ void GameLayer::update() {
 	}
 	deleteProjectiles.clear();
 
+	for (auto const& delProjectileEnemy : deleteProjectilesEnemies) {
+		projectilesEnemies.remove(delProjectileEnemy);
+		space->removeDynamicActor(delProjectileEnemy);
+		delete delProjectileEnemy;
+	}
+	deleteProjectilesEnemies.clear();
 
 	cout << "update GameLayer" << endl;
 }

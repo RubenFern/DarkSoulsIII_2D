@@ -36,7 +36,7 @@ void Archer::update()
 
 	Point* playerPosition = game->getCurrentPlayerPosition();
 
-	if (abs(playerPosition->x - x) < VISION_FIELD && abs(playerPosition->x - x) > 10)
+	if (abs(playerPosition->x - x) < VISION_FIELD && abs(playerPosition->x - x) > 50)
 	{
 		if (playerPosition->x - x < 0)
 		{
@@ -54,7 +54,7 @@ void Archer::update()
 	else
 		vx = 0;
 
-	if (abs(playerPosition->y - y) < VISION_FIELD && abs(playerPosition->y - y) > 10)
+	if (abs(playerPosition->y - y) < VISION_FIELD && abs(playerPosition->y - y) > 50)
 	{
 		if (playerPosition->y - y < 0)
 		{
@@ -77,7 +77,7 @@ Projectile* Archer::attack()
 {
 	Point* playerPosition = game->getCurrentPlayerPosition();
 
-	if (attackTime == 0 && (playerPosition->x - x < VISION_FIELD && playerPosition->y - y < VISION_FIELD))
+	if (attackTime == 0 && abs(playerPosition->x - x) < VISION_FIELD && abs(playerPosition->y - y) < VISION_FIELD)
 	{
 		vx = 0, vy = 0;
 		aAttackingLeft->currentFrame = 0; //"Rebobinar" animación
