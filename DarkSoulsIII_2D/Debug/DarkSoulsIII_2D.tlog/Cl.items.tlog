@@ -1,6 +1,7 @@
 C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Actor.cpp;C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Debug\Actor.obj
 C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Animation.cpp;C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Debug\Animation.obj
 C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Archer.cpp;C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Debug\Archer.obj
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Arrow.cpp;C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Debug\Arrow.obj
 C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.cpp;C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Debug\Audio.obj
 C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Background.cpp;C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Debug\Background.obj
 C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Enemy.cpp;C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Debug\Enemy.obj
@@ -10,6 +11,7 @@ C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\La
 C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Main.cpp;C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Debug\Main.obj
 C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\MenuLayer.cpp;C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Debug\MenuLayer.obj
 C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Player.cpp;C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Debug\Player.obj
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Point.cpp;C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Debug\Point.obj
 C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Projectile.cpp;C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Debug\Projectile.obj
 C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Space.cpp;C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Debug\Space.obj
 C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Text.cpp;C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Debug\Text.obj

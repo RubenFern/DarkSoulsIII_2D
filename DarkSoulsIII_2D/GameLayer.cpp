@@ -26,6 +26,7 @@ void GameLayer::init() {
 
 	enemies.clear(); // Vaciar por si reiniciamos el juego
 	projectiles.clear(); // Vaciar por si reiniciamos el juego
+	projectilesEnemies.clear(); // Vaciar por si reiniciamos el juego
 
 	loadMap("res/" + to_string(game->currentLevel) + ".txt");
 }
@@ -197,6 +198,11 @@ void GameLayer::update() {
 	for (auto const& projectile : projectiles)
 		projectile->update();
 
+	for (auto const& projetileEnemy : projectilesEnemies)
+		projetileEnemy->update();
+
+	attackEnemies();
+
 	// Colisiones
 	for (auto const& enemy : enemies) {
 		if (player->isOverlap(enemy)) {
@@ -275,6 +281,17 @@ void GameLayer::update() {
 	cout << "update GameLayer" << endl;
 }
 
+void GameLayer::attackEnemies() 
+{
+	for (auto const& enemy : enemies)
+	{
+		Projectile* newProjectile = enemy->attack();
+
+		if (newProjectile != NULL)
+			projectilesEnemies.push_back(newProjectile);
+	}
+}
+
 void GameLayer::calculateScroll() {
 	// limite izquierda
 	if (player->x > WIDTH * 0.3)
@@ -307,6 +324,9 @@ void GameLayer::draw() {
 
 	for (auto const& projectile : projectiles)
 		projectile->draw(scrollX, scrollY);
+
+	for (auto const& projectileEnemy : projectilesEnemies)
+		projectileEnemy->draw(scrollX, scrollY);
 
 	player->draw(scrollX, scrollY);
 	for (auto const& enemy : enemies)

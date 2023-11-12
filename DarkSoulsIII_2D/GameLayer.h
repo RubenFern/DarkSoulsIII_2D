@@ -24,6 +24,7 @@ public:
 	void update() override;
 	void draw() override;
 	void playMusic() override;
+	void attackEnemies();
 	void keysToControls(SDL_Event event);
 	void mouseToControls(SDL_Event event); // USO DE MOUSE
 	void gamePadToControls(SDL_Event event); // USO DE GAMEPAD
@@ -51,6 +52,7 @@ public:
 	Actor* backgroundPoints;
 	list<Enemy*> enemies;
 	list<Projectile*> projectiles;
+	list<Projectile*> projectilesEnemies;
 
 	bool controlContinue = false;
 	bool controlAttack = false;

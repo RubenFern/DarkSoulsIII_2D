@@ -92,3 +92,9 @@ SDL_Texture* Game::getTexture(string filename) {
 
 	return mapTextures[filename];
 }
+
+Point* Game::getCurrentPlayerPosition() 
+{
+	return new Point(static_cast<GameLayer*>(gameLayer)->player->x, 
+					 static_cast<GameLayer*>(gameLayer)->player->y);
+}

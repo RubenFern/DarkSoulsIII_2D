@@ -6,6 +6,6 @@
 class Projectile : public Actor
 {
 public:
-	Projectile(float x, float y, Game* game);
-	void update();
+	Projectile(string filename, float x, float y, int w, int h, Game* game);
+	virtual void update();
 };

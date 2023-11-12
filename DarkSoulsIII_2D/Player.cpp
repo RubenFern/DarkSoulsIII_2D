@@ -131,7 +131,7 @@ Projectile* Player::attack() {
 
 		attackTime = attackCadence;
 
-		Projectile* projectile = new Projectile(x, y, game);
+		Projectile* projectile = new Projectile("", x, y, 0, 0, game);
 
 //		if (orientation == game->orientationLeft)
 //			projectile->vx = projectile->vx * -1; // Invertir

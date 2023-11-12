@@ -1,3 +1,7 @@
 ﻿  Archer.cpp
 C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Audio.h(8,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Archer.cpp(135,47): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Archer.cpp(135,44): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Archer.cpp(137,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\DarkSoulsIII_2D\Archer.cpp(138,15): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
   DarkSoulsIII_2D.vcxproj -> C:\Users\ruben\Desktop\Tercero\SEV\JuegoLibre\DarkSoulsIII_2D\Debug\DarkSoulsIII_2D.exe

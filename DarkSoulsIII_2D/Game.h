@@ -14,6 +14,7 @@ using namespace std;
 #define HEIGHT 563
 
 #include "Layer.h"
+#include "Point.h"
 class Layer;
 
 class Game
@@ -23,6 +24,7 @@ public:
 	void scale();
 	void loop();
 	SDL_Texture* getTexture(string filename);
+	Point* getCurrentPlayerPosition();
 	map<string, SDL_Texture*> mapTextures; // map - cache
 	TTF_Font* font;
 	bool scaledToMax = false;

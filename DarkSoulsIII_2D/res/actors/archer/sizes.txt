@@ -3,4 +3,14 @@ Idle:
 	down:			W=36px, H=54px
 
 Walk:
-	
+	down:			W=45px, H=54px
+	left, right:		W=51px, H=54px
+	up:			W=56px, H=54px
+
+Attack:
+	down:			W=40px, H=54px
+	left, right:		W=51px, H=60px
+	up:			W=41px, H=61px
+
+Death:
+				W=41px, H=54px

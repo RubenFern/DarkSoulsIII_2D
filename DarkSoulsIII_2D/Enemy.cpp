@@ -19,44 +19,91 @@ void Enemy::update() {
 	bool endAnimation = animation->update();
 
 	// Acabo la animación, no sabemos cual
-	if (endAnimation) {
+	if (endAnimation) 
+	{
 		// Estaba muriendo
-		if (state == game->stateDying) {
+		if (state == game->stateDying)
 			state = game->stateDead;
-		}
+
+		// Estaba atacando
+		if (state == game->stateAttacking)
+			state = game->stateMoving;
 	}
 
-	if (state == game->stateMoving) {
-		animation = aRunningRight;
-	}
 	if (state == game->stateDying) {
 		animation = aDeath;
 	}
 
-	// Establecer velocidad
-	if (state != game->stateDying) {
-		// no está muerto y se ha quedado parado
-		if (vx == 0) {
-			vxIntelligence = vxIntelligence * -1;
-			vx = vxIntelligence;
-		}
-		if (outRight) {
-			// mover hacia la izquierda vx tiene que ser negativa
-			if (vxIntelligence > 0) {
-				vxIntelligence = vxIntelligence * -1;
-			}
-			vx = vxIntelligence;
-		}
-		if (outLeft) {
-			// mover hacia la derecha vx tiene que ser positiva
-			if (vxIntelligence < 0) {
-				vxIntelligence = vxIntelligence * -1;
-			}
-			vx = vxIntelligence;
+	// Establecer orientación
+	if (vx > 0)
+		orientation = game->orientationRight;
+	if (vx < 0)
+		orientation = game->orientationLeft;
+	if (vy > 0)
+		orientation = game->orientationDown;
+	if (vy < 0)
+		orientation = game->orientationUp;
+
+	// Selección de animación basada en estados
+	if (state == game->stateAttacking)
+	{
+		if (orientation == game->orientationRight)
+			animation = aAttackingRight;
+
+		if (orientation == game->orientationLeft)
+			animation = aAttackingLeft;
+
+		if (orientation == game->orientationUp)
+			animation = aAttackingUp;
+
+		if (orientation == game->orientationDown)
+			animation = aAttackingDown;
+	}
+
+	if (state == game->stateMoving)
+	{
+		if (vx != 0)
+		{
+			if (orientation == game->orientationRight)
+				animation = aRunningRight;
+
+			if (orientation == game->orientationLeft)
+				animation = aRunningLeft;
 		}
 
+		if (vy != 0)
+		{
+			if (orientation == game->orientationUp)
+				animation = aRunningUp;
+
+			if (orientation == game->orientationDown)
+				animation = aRunningDown;
+		}
+
+		if (vx == 0)
+		{
+			if (orientation == game->orientationRight)
+				animation = aIdleRight;
+
+			if (orientation == game->orientationLeft)
+				animation = aIdleLeft;
+		}
+
+		if (vy == 0)
+		{
+			if (orientation == game->orientationUp)
+				animation = aIdleUp;
+
+			if (orientation == game->orientationDown)
+				animation = aIdleDown;
+		}
 	}
-	else {
-		vx = 0;
-	}
+
+	if (attackTime > 0)
+		attackTime--;
+}
+
+Projectile* Enemy::attack() 
+{
+	return NULL;
 }

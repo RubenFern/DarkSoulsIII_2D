@@ -1,12 +1,14 @@
 #pragma once
 
 #include "Actor.h"
-#include "Animation.h" 
+#include "Animation.h"
+#include "Projectile.h"
 
 class Enemy : public Actor
 {
 public:
 	Enemy(string filename, float x, float y, int width, int height, Game* game);
+	virtual Projectile* attack();
 	virtual void draw(float scrollX = 0, float scrollY = 0) override; // Va a sobrescribir
 	virtual void update();
 	virtual void impacted(); // Recibe impacto y pone animación de morir
