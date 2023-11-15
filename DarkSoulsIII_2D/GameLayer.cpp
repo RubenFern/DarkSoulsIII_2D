@@ -205,7 +205,7 @@ void GameLayer::update() {
 
 	// Colisiones
 	for (auto const& enemy : enemies) {
-		if (player->isOverlap(enemy)) {
+		if (player->isOverlap(enemy) && enemy->contactDamage) {
 			player->loseLife();
 			if (player->life <= 0) {
 				init();

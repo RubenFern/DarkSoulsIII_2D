@@ -18,6 +18,7 @@ public:
 	int attackTime = 0;
 	int life = 3;
 	int orientation;
+	bool contactDamage;
 
 	Animation* aIdleRight;
 	Animation* aIdleLeft;

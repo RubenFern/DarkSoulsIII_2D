@@ -6,6 +6,7 @@ Archer::Archer(float x, float y, Game* game)
 	life = 1;
 	orientation = game->orientationDown;
 	state = game->stateMoving;
+	contactDamage = false;
 
 	aAttackingRight = new Animation("res/actors/archer/attack/right.png", WIDTH_ATTACK_L_R, HEIGHT_ATTACK_L_R, 663, 60, 4, 13, false, game);
 	aAttackingLeft = new Animation("res/actors/archer/attack/left.png", WIDTH_ATTACK_L_R, HEIGHT_ATTACK_L_R, 663, 60, 4, 13, false, game);
