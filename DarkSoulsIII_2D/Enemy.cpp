@@ -103,6 +103,10 @@ void Enemy::update() {
 		attackTime--;
 }
 
+void Enemy::move()
+{
+}
+
 Projectile* Enemy::attack() 
 {
 	return NULL;

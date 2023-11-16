@@ -204,15 +204,9 @@ void GameLayer::update() {
 	attackEnemies();
 
 	// Colisiones
-	for (auto const& enemy : enemies) {
-		if (player->isOverlap(enemy) && enemy->contactDamage) {
-			player->loseLife();
-			if (player->life <= 0) {
-				init();
-				return;
-			}
-		}
-	}
+	for (auto const& enemy : enemies)
+		if (player->isOverlap(enemy) && enemy->contactDamage)
+			impactedPlayer();
 
 	// Colisiones , Enemy - Projectile
 
@@ -256,13 +250,22 @@ void GameLayer::update() {
 					deleteProjectiles.push_back(projectile);
 				}
 
-
 				enemy->impacted();
 				points++;
 				textPoints->content = to_string(points);
-
-
 			}
+		}
+	}
+
+	for (auto const& projectileEnemy : projectilesEnemies) {
+		if (player->isOverlap(projectileEnemy)) {
+			bool pInList = std::find(deleteProjectilesEnemies.begin(),
+								deleteProjectilesEnemies.end(),
+								projectileEnemy) != deleteProjectilesEnemies.end();
+			if (!pInList)
+				deleteProjectilesEnemies.push_back(projectileEnemy);
+
+			impactedPlayer();
 		}
 	}
 
@@ -297,6 +300,12 @@ void GameLayer::update() {
 		delete delProjectileEnemy;
 	}
 	deleteProjectilesEnemies.clear();
+
+	if (player->life <= 0) 
+	{
+		init();
+		return;
+	}
 
 	cout << "update GameLayer" << endl;
 }
@@ -518,4 +527,8 @@ void GameLayer::keysToControls(SDL_Event event) {
 			break;
 		}
 	}
+}
+
+void GameLayer::impactedPlayer() {
+	player->loseLife();
 }

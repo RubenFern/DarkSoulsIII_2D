@@ -12,6 +12,7 @@ public:
 	virtual void draw(float scrollX = 0, float scrollY = 0) override; // Va a sobrescribir
 	virtual void update();
 	virtual void impacted(); // Recibe impacto y pone animación de morir
+	virtual void move();
 	float vxIntelligence;
 	int state;
 	int attackCadence = 30;

@@ -35,11 +35,54 @@ void Archer::update()
 {
 	Enemy::update();
 
+	move();
+}
+
+
+void Archer::move()
+{
+	if (state == game->stateDying || state == game->stateAttacking)
+		return;
+
 	Point* playerPosition = game->getCurrentPlayerPosition();
 
-	if (abs(playerPosition->x - x) < VISION_FIELD && abs(playerPosition->x - x) > 50)
+	int dx = playerPosition->x - x;
+	int dy = playerPosition->y - y;
+
+	// Si el jugador está fuera del rango de visión del arquero
+	if (abs(dx) > VISION_FIELD || abs(dy) > VISION_FIELD)
 	{
-		if (playerPosition->x - x < 0)
+		vx = 0;
+		vy = 0;
+
+		if (dx > 0)
+		{
+			orientation = game->orientationLeft;
+			animation = aIdleLeft;
+		}
+		else if (dx < 0)
+		{
+			orientation = game->orientationRight;
+			animation = aIdleRight;
+		}
+		else if (dy > 0)
+		{
+			orientation = game->orientationUp;
+			animation = aIdleUp;
+		}
+		else if (dy < 0)
+		{
+			orientation = game->orientationDown;
+			animation = aIdleDown;
+		}
+
+		return;
+	}
+
+	// Si el jugador está en el rango de visión horizontal del arquero
+	if (abs(dx) < VISION_FIELD && abs(dx) > ERROR)
+	{
+		if (dx < 0)
 		{
 			orientation = game->orientationLeft;
 			animation = aRunningLeft;
@@ -52,12 +95,11 @@ void Archer::update()
 			vx = 1;
 		}
 	}
-	else
-		vx = 0;
 
-	if (abs(playerPosition->y - y) < VISION_FIELD && abs(playerPosition->y - y) > 50)
+	// Si el jugador está en el rango de visión vertical del arquero
+	if (abs(dy) < VISION_FIELD && abs(dy) > ERROR)
 	{
-		if (playerPosition->y - y < 0)
+		if (dy < 0)
 		{
 			orientation = game->orientationUp;
 			animation = aRunningUp;
@@ -70,15 +112,75 @@ void Archer::update()
 			vy = 1;
 		}
 	}
-	else
-		vy = 0;
+
+	// Si el jugador está en el rango de ataque del arquero	
+	if (abs(dx) < ERROR && abs(dy) < ERROR && abs(dx) > 20 && abs(dy) > 20)
+	{
+		// Esquina superior izquierda
+		if (dx > 20 && dy < -20)
+		{
+			orientation = game->orientationRight;
+			animation = aRunningRight;
+			vx = 1;
+		}
+		// Esquina superior derecha
+		else if (dx < -20 && dy < -20)
+		{
+			orientation = game->orientationLeft;
+			animation = aRunningLeft;
+			vx = -1;
+		}
+		// Esquina inferior izquierda
+		else if (dx > 20 && dy > 20)
+		{
+			orientation = game->orientationRight;
+			animation = aRunningRight;
+			vx = 1;
+		}
+		// Esquina inferior derecha
+		else if (dx < -20 && dy > 20)
+		{
+			orientation = game->orientationLeft;
+			animation = aRunningLeft;
+			vx = -1;
+		}
+		else
+		{
+			if (vx > 0)
+			{
+				orientation = game->orientationLeft;
+				animation = aIdleLeft;
+			}
+			else if (vx < 0)
+			{
+				orientation = game->orientationRight;
+				animation = aIdleRight;
+			}
+			else if (vy > 0)
+			{
+				orientation = game->orientationUp;
+				animation = aIdleUp;
+			}
+			else if (vy < 0)
+			{
+				orientation = game->orientationDown;
+				animation = aIdleDown;
+			}
+
+			vx = 0;
+			vy = 0;
+		}
+	}
 }
 
 Projectile* Archer::attack()
 {
 	Point* playerPosition = game->getCurrentPlayerPosition();
+	
+	int dx = playerPosition->x - x;
+	int dy = playerPosition->y - y;
 
-	if (attackTime == 0 && abs(playerPosition->x - x) < VISION_FIELD && abs(playerPosition->y - y) < VISION_FIELD)
+	if (attackTime == 0 && abs(dx) < VISION_FIELD && abs(dy) < VISION_FIELD)
 	{
 		vx = 0, vy = 0;
 		aAttackingLeft->currentFrame = 0; //"Rebobinar" animación
@@ -87,12 +189,10 @@ Projectile* Archer::attack()
 		aAttackingDown->currentFrame = 0; //"Rebobinar" animación
 
 		attackTime = attackCadence;
+		state = game->stateAttacking;
 
 		string arrowPath = "";
 		int width = 0, height = 0, vx = 0, vy = 0;
-
-		int dx = playerPosition->x - x;
-		int dy = playerPosition->y - y;
 
 		if (dx < -ERROR) 
 		{
@@ -130,6 +230,29 @@ Projectile* Archer::attack()
 				orientation = game->orientationDown;
 				animation = aAttackingDown;
 				arrowPath = "down.png", width = 10, height = 40, vy = 6;
+			}
+			else // Idle
+			{
+				if (orientation == game->orientationLeft)
+				{
+					animation = aAttackingLeft;
+					arrowPath = "left.png", width = 40, height = 10, vx = -6;
+				}
+				else if (orientation == game->orientationRight)
+				{
+					animation = aAttackingRight;
+					arrowPath = "right.png", width = 40, height = 10, vx = 6;
+				}
+				else if (orientation == game->orientationUp)
+				{
+					animation = aAttackingUp;
+					arrowPath = "up.png", width = 10, height = 40, vy = -6;
+				}
+				else if (orientation == game->orientationDown)
+				{
+					animation = aAttackingDown;
+					arrowPath = "down.png", width = 10, height = 40, vy = 6;
+				}
 			}
 		}
 
