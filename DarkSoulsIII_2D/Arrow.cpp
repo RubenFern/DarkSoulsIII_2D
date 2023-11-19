@@ -6,6 +6,5 @@ Arrow::Arrow(string filename, float x, float y, int w, int h, Game* game) :
 
 
 void Arrow::update() {
-	x += vx;
-	y += vy;
+	Projectile::update();
 }

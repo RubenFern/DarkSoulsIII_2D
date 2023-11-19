@@ -21,6 +21,7 @@
 
 #include "Actor.h"
 #include "Projectile.h"
+#include "Sword.h"
 #include "Animation.h" // incluir animacion 
 
 class Player : public Actor

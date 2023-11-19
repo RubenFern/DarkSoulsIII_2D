@@ -131,10 +131,20 @@ Projectile* Player::attack() {
 
 		attackTime = attackCadence;
 
-		Projectile* projectile = new Projectile("", x, y, 0, 0, game);
+		Projectile* projectile = new Sword("res/disparo_jugador.png", x, y, 20, 20, game);
+		float vx = 0, vy = 0;
 
-//		if (orientation == game->orientationLeft)
-//			projectile->vx = projectile->vx * -1; // Invertir
+		if (orientation == game->orientationLeft)
+			vx = -4;
+		else if (orientation == game->orientationDown)
+			vy = 4;
+		else if (orientation == game->orientationUp)
+			vy = -4;
+		else if (orientation == game->orientationRight)
+			vx = 4;
+		
+		projectile->vx = vx;
+		projectile->vy = vy;
 		
 		return projectile;
 	}

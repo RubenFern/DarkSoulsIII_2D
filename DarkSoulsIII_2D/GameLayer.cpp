@@ -92,7 +92,7 @@ void GameLayer::loadMapObject(char character, float x, float y)
 		space->addStaticActor(tile);
 		break;
 	}
-	case 'F': {		// Suelo
+	case '-': {		// Suelo
 		Tile* tile = new Tile("res/blocks/floor.png", x, y, game);
 		// modificación para empezar a contar desde el suelo.
 		tile->y = tile->y - tile->height / 2;
@@ -161,10 +161,8 @@ void GameLayer::processControls() {
 	}
 	if (controlAttack) {
 		Projectile* newProjectile = player->attack();
-		if (newProjectile != NULL) {
-			space->addDynamicActor(newProjectile);
+		if (newProjectile != NULL)
 			projectiles.push_back(newProjectile);
-		}
 	}
 
 	// Eje X
@@ -214,7 +212,8 @@ void GameLayer::update() {
 	list<Projectile*> deleteProjectiles;
 	list<Projectile*> deleteProjectilesEnemies;
 	for (auto const& projectile : projectiles) {
-		if (projectile->isInRender(scrollX, scrollY) == false || projectile->vx == 0) {
+		if (projectile->isInRender(scrollX, scrollY) == false || (projectile->vx == 0 && projectile->vy == 0) 
+			|| (dynamic_cast<Sword*>(projectile) != nullptr && dynamic_cast<Sword*>(projectile)->lifeTime == 0)) {
 
 			bool pInList = std::find(deleteProjectiles.begin(),
 				deleteProjectiles.end(),
@@ -227,7 +226,7 @@ void GameLayer::update() {
 	}
 
 	for (auto const& projectileEnemy : projectilesEnemies) {
-		if (projectileEnemy->isInRender(scrollX, scrollY) == false || projectileEnemy->vx == 0) {
+		if (projectileEnemy->isInRender(scrollX, scrollY) == false || (projectileEnemy->vx == 0 && projectileEnemy->vy == 0)) {
 
 			bool pInList = std::find(deleteProjectilesEnemies.begin(),
 								deleteProjectilesEnemies.end(),
@@ -307,7 +306,7 @@ void GameLayer::update() {
 		return;
 	}
 
-	cout << "update GameLayer" << endl;
+	//cout << "update GameLayer" << endl;
 }
 
 void GameLayer::attackEnemies() 

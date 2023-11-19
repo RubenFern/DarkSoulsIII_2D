@@ -273,4 +273,9 @@ void Archer::draw(float scrollX, float scrollY)
 	Enemy::draw(scrollX, scrollY);
 }
 
-void Archer::impacted() {}
+void Archer::impacted() 
+{
+	life--;
+	state = game->stateDying;
+	animation = aDeath;
+}
