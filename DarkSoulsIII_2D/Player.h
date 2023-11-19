@@ -1,5 +1,7 @@
 #pragma once
 
+#define LIFE 20
+
 #define WIDTH_DOWN 37
 #define HEIGHT_DOWN 53
 #define WIDTH_UP 37
@@ -34,7 +36,8 @@ public:
 	void moveY(float axis);
 	void draw(float scrollX = 0, float scrollY = 0) override; // Va a sobrescribir
 	void loseLife();
-	int life = 3;
+	void restoreLife();
+	int life = LIFE;
 	int invulnerableTime = 0;
 	int orientation;
 	int state;

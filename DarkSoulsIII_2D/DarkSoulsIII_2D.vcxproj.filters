@@ -102,6 +102,9 @@
     <ClCompile Include="Sword.cpp">
       <Filter>Archivos de origen\Actors\Weapons</Filter>
     </ClCompile>
+    <ClCompile Include="Bonfire.cpp">
+      <Filter>Archivos de origen\Actors\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -157,6 +160,9 @@
     </ClInclude>
     <ClInclude Include="Sword.h">
       <Filter>Archivos de encabezado\Actors\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Bonfire.h">
+      <Filter>Archivos de encabezado\Actors\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

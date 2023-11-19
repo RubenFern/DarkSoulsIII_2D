@@ -174,3 +174,8 @@ void Player::loseLife() {
 		}
 	}
 }
+
+void Player::restoreLife() 
+{
+	life = LIFE;
+}

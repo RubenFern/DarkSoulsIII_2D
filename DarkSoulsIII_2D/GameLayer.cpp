@@ -27,6 +27,7 @@ void GameLayer::init() {
 	enemies.clear(); // Vaciar por si reiniciamos el juego
 	projectiles.clear(); // Vaciar por si reiniciamos el juego
 	projectilesEnemies.clear(); // Vaciar por si reiniciamos el juego
+	bonfires.clear(); // Vaciar por si reiniciamos el juego
 
 	loadMap("res/" + to_string(game->currentLevel) + ".txt");
 }
@@ -111,6 +112,25 @@ void GameLayer::loadMapObject(char character, float x, float y)
 		space->addDynamicActor(enemy);
 		break;
 	}
+	case 'B': {		// Hoguera
+		Tile* tile = new Tile("res/blocks/floor.png", x, y, game);
+		tile->y = tile->y - tile->height / 2;
+		tiles.push_back(tile);
+
+		Bonfire* bonfire = new Bonfire(x, y, game);
+		// modificación para empezar a contar desde el suelo.
+		bonfire->y = bonfire->y - bonfire->height / 2;
+		tiles.push_back(bonfire);
+		space->addStaticActor(bonfire);
+		bonfires.push_back(bonfire);
+		break;
+	}
+	case 'L': {		// Puerta izquierda
+		doorLeft = new Tile("res/blocks/door-left.png", x, y, game);
+		doorLeft->y = doorLeft->y - doorLeft->height / 2;
+		tiles.push_back(doorLeft);
+		break;
+	}
 	}
 }
 
@@ -186,9 +206,15 @@ void GameLayer::update() {
 	if (pause)
 		return;
 
+	processDoor();
+
 	space->update();
 	background->update();
 	player->update();
+
+	for (auto const& bonfire : bonfires)
+		if (player->isOverlap(bonfire))
+			player->restoreLife();
 
 	for (auto const& enemy : enemies)
 		enemy->update();
@@ -530,4 +556,24 @@ void GameLayer::keysToControls(SDL_Event event) {
 
 void GameLayer::impactedPlayer() {
 	player->loseLife();
+}
+
+void GameLayer::processDoor() {
+	if (doorLeft != NULL && player->isOverlap(doorLeft)) {
+		cout << "Puerta izquierda" << endl;
+		game->currentLevel = 1;
+		init();
+	}
+	if (doorRight != NULL && player->isOverlap(doorRight)) {
+		game->currentLevel = 2;
+		init();
+	}
+	if (doorUp != NULL && player->isOverlap(doorUp)) {
+		game->currentLevel = 3;
+		init();
+	}
+	if (doorDown != NULL && player->isOverlap(doorDown)) {
+		game->currentLevel = 3;
+		init();
+	}
 }

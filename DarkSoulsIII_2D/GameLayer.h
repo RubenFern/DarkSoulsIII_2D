@@ -8,6 +8,7 @@
 #include "Projectile.h"
 #include "Text.h"
 #include "Tile.h"
+#include "Bonfire.h"
 
 #include "Space.h" // importar
 
@@ -32,6 +33,7 @@ public:
 	void loadMapObject(char character, float x, float y);
 	void calculateScroll();
 	void impactedPlayer();
+	void processDoor();
 	Actor* message;
 	bool pause;
 	bool playingMusic;
@@ -54,6 +56,12 @@ public:
 	list<Enemy*> enemies;
 	list<Projectile*> projectiles;
 	list<Projectile*> projectilesEnemies;
+	list<Bonfire*> bonfires;
+
+	Tile* doorLeft;
+	Tile* doorRight;
+	Tile* doorUp;
+	Tile* doorDown;
 
 	bool controlContinue = false;
 	bool controlAttack = false;
