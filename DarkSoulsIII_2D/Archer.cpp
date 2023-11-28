@@ -4,6 +4,7 @@ Archer::Archer(float x, float y, Game* game)
 	: Enemy("res/actors/archer/idle/down.png", x, y, 34, 53, game) 
 {
 	life = 1;
+	damage = 20;
 	orientation = game->orientationDown;
 	state = game->stateMoving;
 	contactDamage = false;

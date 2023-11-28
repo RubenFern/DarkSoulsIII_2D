@@ -1,6 +1,6 @@
 #pragma once
 
-#define LIFE 20
+#define LIFE 100
 
 #define WIDTH_DOWN 37
 #define HEIGHT_DOWN 53
@@ -25,6 +25,7 @@
 #include "Projectile.h"
 #include "Sword.h"
 #include "Animation.h" // incluir animacion 
+#include "HealthBar.h"
 
 class Player : public Actor
 {
@@ -35,7 +36,7 @@ public:
 	void moveX(float axis);
 	void moveY(float axis);
 	void draw(float scrollX = 0, float scrollY = 0) override; // Va a sobrescribir
-	void loseLife();
+	void loseLife(int damage);
 	void restoreLife();
 	int life = LIFE;
 	int invulnerableTime = 0;
@@ -59,6 +60,7 @@ public:
 
 	Animation* aDeath;
 	Animation* animation; // Referencia a la animación mostrada
+	HealthBar* healthBar;
 	int attackCadence = 30;
 	int attackTime = 0;
 };

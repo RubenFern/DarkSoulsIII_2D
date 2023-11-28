@@ -23,6 +23,8 @@ Player::Player(float x, float y, Game* game)
 
 	aDeath = new Animation("res/actors/player-katana/death/death.png", WIDTH_DEATH, HEIGHT_DEATH, 210, 53, 6, 6, false, game);
 
+	healthBar = new HealthBar(life, WIDTH * 0.02, HEIGHT * 0.04, game);
+
 	animation = aIdleDown;
 }
 
@@ -161,15 +163,18 @@ void Player::draw(float scrollX, float scrollY)
 	else 
 		if (invulnerableTime % 10 >= 0 && invulnerableTime % 10 <= 5)
 			animation->draw(x - scrollX, y - scrollY);
+
+	healthBar->draw();
 }
 
-void Player::loseLife() {
+void Player::loseLife(int damage) {
 	if (invulnerableTime <= 0) 
 	{
 		if (life > 0) 
 		{
-			life--;
+			life -= damage;
 			invulnerableTime = 30;
+			healthBar->health = life;
 			// 100 actualizaciones 
 		}
 	}

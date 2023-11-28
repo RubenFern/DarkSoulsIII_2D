@@ -32,7 +32,8 @@ public:
 	void loadMap(string name);
 	void loadMapObject(char character, float x, float y);
 	void calculateScroll();
-	void impactedPlayer();
+	void impactedPlayer(Enemy* e);
+	void impactedPlayer(Projectile* p);
 	void processDoor();
 	Actor* message;
 	bool pause;

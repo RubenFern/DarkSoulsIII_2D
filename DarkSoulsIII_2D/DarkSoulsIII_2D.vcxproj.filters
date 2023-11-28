@@ -105,6 +105,9 @@
     <ClCompile Include="Bonfire.cpp">
       <Filter>Archivos de origen\Actors\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="HealthBar.cpp">
+      <Filter>Archivos de origen\Actors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -163,6 +166,9 @@
     </ClInclude>
     <ClInclude Include="Bonfire.h">
       <Filter>Archivos de encabezado\Actors\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthBar.h">
+      <Filter>Archivos de encabezado\Actors</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

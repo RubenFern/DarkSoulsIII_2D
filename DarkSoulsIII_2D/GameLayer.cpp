@@ -230,7 +230,7 @@ void GameLayer::update() {
 	// Colisiones
 	for (auto const& enemy : enemies)
 		if (player->isOverlap(enemy) && enemy->contactDamage)
-			impactedPlayer();
+			impactedPlayer(enemy);
 
 	// Colisiones , Enemy - Projectile
 
@@ -290,7 +290,7 @@ void GameLayer::update() {
 			if (!pInList)
 				deleteProjectilesEnemies.push_back(projectileEnemy);
 
-			impactedPlayer();
+			impactedPlayer(projectileEnemy);
 		}
 	}
 
@@ -387,7 +387,6 @@ void GameLayer::draw() {
 		enemy->draw(scrollX, scrollY);
 
 	backgroundPoints->draw();
-	textPoints->draw();
 
 	// HUD
 	if (pause)
@@ -520,8 +519,6 @@ void GameLayer::keysToControls(SDL_Event event) {
 			controlAttack = true;
 			break;
 		}
-
-
 	}
 	if (event.type == SDL_KEYUP) {
 		int code = event.key.keysym.sym;
@@ -554,8 +551,12 @@ void GameLayer::keysToControls(SDL_Event event) {
 	}
 }
 
-void GameLayer::impactedPlayer() {
-	player->loseLife();
+void GameLayer::impactedPlayer(Enemy* e) {
+	player->loseLife(e->damage);
+}
+
+void GameLayer::impactedPlayer(Projectile* p) {
+	player->loseLife(p->damage);
 }
 
 void GameLayer::processDoor() {

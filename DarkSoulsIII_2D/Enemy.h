@@ -18,6 +18,7 @@ public:
 	int attackCadence = 30;
 	int attackTime = 0;
 	int life = 3;
+	int damage = 20;
 	int orientation;
 	bool contactDamage;
 
