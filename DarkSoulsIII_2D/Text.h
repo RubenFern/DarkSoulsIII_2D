@@ -12,5 +12,6 @@ public:
 	int y;
 	int width;
 	int height;
+	TTF_Font* font;
 	Game* game; // referencia al juego
 };

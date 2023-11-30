@@ -43,7 +43,11 @@ void Archer::update()
 void Archer::move()
 {
 	if (state == game->stateDying || state == game->stateAttacking)
+	{
+		vx = 0;
+		vy = 0;
 		return;
+	}
 
 	Point* playerPosition = game->getCurrentPlayerPosition();
 

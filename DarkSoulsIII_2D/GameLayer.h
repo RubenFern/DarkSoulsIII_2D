@@ -53,7 +53,6 @@ public:
 	int newEnemyTime = 0;
 	Player* player;
 	Background* background;
-	Actor* backgroundPoints;
 	list<Enemy*> enemies;
 	list<Projectile*> projectiles;
 	list<Projectile*> projectilesEnemies;

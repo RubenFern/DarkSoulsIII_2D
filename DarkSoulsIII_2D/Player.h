@@ -1,6 +1,6 @@
 #pragma once
 
-#define LIFE 100
+#define LIFE 250
 
 #define WIDTH_DOWN 37
 #define HEIGHT_DOWN 53
@@ -24,8 +24,13 @@
 #include "Actor.h"
 #include "Projectile.h"
 #include "Sword.h"
-#include "Animation.h" // incluir animacion 
+#include "Animation.h"
 #include "HealthBar.h"
+#include "Consumable.h"
+#include "Text.h"
+#include "EstusFlask.h"
+#include "Weapon.h"
+#include "Uchigatana.h"
 
 class Player : public Actor
 {
@@ -61,6 +66,11 @@ public:
 	Animation* aDeath;
 	Animation* animation; // Referencia a la animación mostrada
 	HealthBar* healthBar;
+
+	Consumable* selectedConsumable;
+	Weapon* selectedWeapon;
+	Text* textNumEstus;
+	int numEstus = 10;
 	int attackCadence = 30;
 	int attackTime = 0;
 };

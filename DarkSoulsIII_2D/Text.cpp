@@ -4,6 +4,7 @@ Text::Text(string content, float x, float y, Game* game) {
 	this->content = content;
 	this->x = x;
 	this->y = y;
+	this->font = font;
 	this->game = game;
 }
 

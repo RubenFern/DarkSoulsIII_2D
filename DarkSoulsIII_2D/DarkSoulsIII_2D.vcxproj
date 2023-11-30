@@ -146,7 +146,9 @@
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Bonfire.cpp" />
+    <ClCompile Include="Consumable.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EstusFlask.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameLayer.cpp" />
     <ClCompile Include="HealthBar.cpp" />
@@ -160,6 +162,8 @@
     <ClCompile Include="Sword.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="Uchigatana.cpp" />
+    <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
@@ -169,7 +173,9 @@
     <ClInclude Include="Audio.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="Bonfire.h" />
+    <ClInclude Include="Consumable.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EstusFlask.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameLayer.h" />
     <ClInclude Include="HealthBar.h" />
@@ -182,6 +188,8 @@
     <ClInclude Include="Sword.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="Uchigatana.h" />
+    <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

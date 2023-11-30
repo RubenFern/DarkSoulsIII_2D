@@ -5,13 +5,12 @@
 class HealthBar
 {
 public:
-	HealthBar(int health, float x, float y, Game* game);
+	HealthBar(int health, int height, float x, float y, Game* game);
 	void draw();
 	int health;
+	int height;
 	int x;
 	int y;
-	int width;
-	int height;
 	Game* game;
 };
 

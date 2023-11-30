@@ -21,8 +21,6 @@ void GameLayer::init() {
 	textPoints->content = to_string(points);
 
 	background = new Background("res/fondo.png", WIDTH * 0.5, HEIGHT * 0.5, 0, game);
-	backgroundPoints = new Actor("res/icono_puntos.png",
-		WIDTH * 0.85, HEIGHT * 0.05, 24, 24, game);
 
 	enemies.clear(); // Vaciar por si reiniciamos el juego
 	projectiles.clear(); // Vaciar por si reiniciamos el juego
@@ -386,8 +384,6 @@ void GameLayer::draw() {
 	for (auto const& enemy : enemies)
 		enemy->draw(scrollX, scrollY);
 
-	backgroundPoints->draw();
-
 	// HUD
 	if (pause)
 		message->draw();
@@ -517,6 +513,9 @@ void GameLayer::keysToControls(SDL_Event event) {
 			break;
 		case SDLK_SPACE: // dispara
 			controlAttack = true;
+			break;
+		case SDLK_e: // usar objeto
+			player->selectedConsumable->consume();
 			break;
 		}
 	}
