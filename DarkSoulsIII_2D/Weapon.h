@@ -9,5 +9,7 @@ public:
 	void draw(float scrollX = 0, float scrollY = 0) override;
 	string path;
 	int damage;
+	int attackCadence = 30;
+	int attackTime = 0;
 };
 

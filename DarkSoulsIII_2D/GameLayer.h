@@ -10,6 +10,8 @@
 #include "Text.h"
 #include "Tile.h"
 #include "Bonfire.h"
+#include "Consumable.h"
+
 
 #include "Space.h" // importar
 

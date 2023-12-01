@@ -529,6 +529,9 @@ void GameLayer::keysToControls(SDL_Event event) {
 		case SDLK_e: // usar objeto
 			player->selectedConsumable->consume();
 			break;
+		case SDLK_f: // cambiar objeto consumible
+			player->nextConsumable();
+			break;
 		}
 	}
 	if (event.type == SDL_KEYUP) {
@@ -589,3 +592,4 @@ void GameLayer::processDoor() {
 		init();
 	}
 }
+

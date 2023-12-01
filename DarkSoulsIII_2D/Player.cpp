@@ -7,27 +7,27 @@ Player::Player(float x, float y, Game* game)
 	state = game->stateMoving;
 
 	healthBar = new HealthBar(life, 15, WIDTH * 0.02, HEIGHT * 0.04, game);
-	selectedConsumable = new EstusFlask(WIDTH * 0.06, HEIGHT * 0.90, game);
 	selectedWeapon = new Uchigatana(WIDTH * 0.13, HEIGHT * 0.90, game);
 	
-	aAttackingRight = new Animation("res/actors/" + selectedWeapon->path + "/attack/right.png", WIDTH_ATTACK_R_L, HEIGHT_ATTACK_R_L, 414, 59, 3, 6, false, game);
-	aAttackingLeft = new Animation("res/actors/" + selectedWeapon->path + "/attack/left.png", WIDTH_ATTACK_R_L, HEIGHT_ATTACK_R_L, 414, 59, 3, 6, false, game);
-	aAttackingDown = new Animation("res/actors/" + selectedWeapon->path + "/attack/down.png", WIDTH_ATTACK_U, HEIGHT_ATTACK_U, 384, 66, 3, 6, false, game);
-	aAttackingUp = new Animation("res/actors/" + selectedWeapon->path + "/attack/up.png", WIDTH_ATTACK_D, HEIGHT_ATTACK_D, 432, 68, 3, 6, false, game);
+	aAttackingRight = new Animation("res/actors/player/" + selectedWeapon->path + "/attack/right.png", WIDTH_ATTACK_R_L, HEIGHT_ATTACK_R_L, 414, 59, 3, 6, false, game);
+	aAttackingLeft = new Animation("res/actors/player/" + selectedWeapon->path + "/attack/left.png", WIDTH_ATTACK_R_L, HEIGHT_ATTACK_R_L, 414, 59, 3, 6, false, game);
+	aAttackingDown = new Animation("res/actors/player/" + selectedWeapon->path + "/attack/down.png", WIDTH_ATTACK_U, HEIGHT_ATTACK_U, 384, 66, 3, 6, false, game);
+	aAttackingUp = new Animation("res/actors/player/" + selectedWeapon->path + "/attack/up.png", WIDTH_ATTACK_D, HEIGHT_ATTACK_D, 432, 68, 3, 6, false, game);
 
-	aIdleRight = new Animation("res/actors/" + selectedWeapon->path + "/idle/right.png", WIDTH_RIGHT, HEIGHT_RIGHT, 55, 53, 6, 1, true, game);
-	aIdleLeft = new Animation("res/actors/" + selectedWeapon->path + "/idle/left.png", WIDTH_LEFT, HEIGHT_LEFT, 55, 53, 6, 1, true, game);
-	aIdleDown = new Animation("res/actors/" + selectedWeapon->path + "/idle/down.png", WIDTH_DOWN, HEIGHT_DOWN, 55, 53, 6, 1, true, game);
-	aIdleUp = new Animation("res/actors/" + selectedWeapon->path + "/idle/up.png", WIDTH_UP, HEIGHT_UP, 55, 53, 6, 1, true, game);
+	aIdleRight = new Animation("res/actors/player/" + selectedWeapon->path + "/idle/right.png", WIDTH_RIGHT, HEIGHT_RIGHT, 55, 53, 6, 1, true, game);
+	aIdleLeft = new Animation("res/actors/player/" + selectedWeapon->path + "/idle/left.png", WIDTH_LEFT, HEIGHT_LEFT, 55, 53, 6, 1, true, game);
+	aIdleDown = new Animation("res/actors/player/" + selectedWeapon->path + "/idle/down.png", WIDTH_DOWN, HEIGHT_DOWN, 55, 53, 6, 1, true, game);
+	aIdleUp = new Animation("res/actors/player/" + selectedWeapon->path + "/idle/up.png", WIDTH_UP, HEIGHT_UP, 55, 53, 6, 1, true, game);
 	
-	aRunningRight = new Animation("res/actors/" + selectedWeapon->path + "/walk/right.png", WIDTH_RIGHT, HEIGHT_RIGHT, 495, 53, 3, 9, true, game);
-	aRunningLeft = new Animation("res/actors/" + selectedWeapon->path + "/walk/left.png", WIDTH_LEFT, HEIGHT_LEFT, 495, 53, 3, 9, true, game);
-	aRunningDown = new Animation("res/actors/" + selectedWeapon->path + "/walk/down.png", WIDTH_DOWN, HEIGHT_DOWN, 333, 53, 3, 9, true, game);
-	aRunningUp = new Animation("res/actors/" + selectedWeapon->path + "/walk/up.png", WIDTH_UP, HEIGHT_UP, 333, 53, 3, 9, true, game);
+	aRunningRight = new Animation("res/actors/player/" + selectedWeapon->path + "/walk/right.png", WIDTH_RIGHT, HEIGHT_RIGHT, 495, 53, 3, 9, true, game);
+	aRunningLeft = new Animation("res/actors/player/" + selectedWeapon->path + "/walk/left.png", WIDTH_LEFT, HEIGHT_LEFT, 495, 53, 3, 9, true, game);
+	aRunningDown = new Animation("res/actors/player/" + selectedWeapon->path + "/walk/down.png", WIDTH_DOWN, HEIGHT_DOWN, 333, 53, 3, 9, true, game);
+	aRunningUp = new Animation("res/actors/player/" + selectedWeapon->path + "/walk/up.png", WIDTH_UP, HEIGHT_UP, 333, 53, 3, 9, true, game);
 
-	aDeath = new Animation("res/actors/" + selectedWeapon->path + "/death/death.png", WIDTH_DEATH, HEIGHT_DEATH, 210, 53, 6, 6, false, game);
+	aDeath = new Animation("res/actors/player/" + selectedWeapon->path + "/death/death.png", WIDTH_DEATH, HEIGHT_DEATH, 210, 53, 6, 6, false, game);
 
-	textNumEstus = new Text(to_string(numEstus), WIDTH * 0.04, HEIGHT * 0.85, game);
+	loadConsumables();
+	selectedConsumable = consumables[0];
 
 	animation = aIdleDown;
 }
@@ -112,8 +112,8 @@ void Player::update() {
 	}
 
 
-	if (attackTime > 0)
-		attackTime--;
+	if (selectedWeapon->attackTime > 0)
+		selectedWeapon->attackTime--;
 }
 
 void Player::moveX(float axis) {
@@ -126,7 +126,7 @@ void Player::moveY(float axis) {
 
 Projectile* Player::attack() {
 
-	if (attackTime == 0) 
+	if (selectedWeapon->attackTime == 0) 
 	{
 		state = game->stateAttacking;
 
@@ -135,7 +135,7 @@ Projectile* Player::attack() {
 		aAttackingUp->currentFrame = 0; //"Rebobinar" animación
 		aAttackingDown->currentFrame = 0; //"Rebobinar" animación
 
-		attackTime = attackCadence;
+		selectedWeapon->attackTime = selectedWeapon->attackCadence;
 
 		Projectile* projectile = new Sword("res/disparo_jugador.png", x, y, 20, 20, game);
 		float vx = 0, vy = 0;
@@ -171,7 +171,6 @@ void Player::draw(float scrollX, float scrollY)
 	healthBar->draw(healthBar->x, healthBar->y);
 	selectedConsumable->draw(scrollX, scrollY);
 	selectedWeapon->draw(scrollX, scrollY);
-	textNumEstus->draw();
 }
 
 void Player::loseLife(int damage) {
@@ -187,10 +186,27 @@ void Player::loseLife(int damage) {
 	}
 }
 
+void Player::loadConsumables()
+{
+	consumables[0] = new EstusFlask(WIDTH * 0.06, HEIGHT * 0.90, game);
+	consumables[1] = new BloodGem(WIDTH * 0.06, HEIGHT * 0.90, game);
+}
+
+void Player::nextConsumable()
+{
+	indexConsumables++;
+
+	if (indexConsumables >= TOTAL_CONSUMABLES)
+		indexConsumables = 0;
+
+	selectedConsumable = consumables[indexConsumables];
+}
+
 void Player::restoreLife() 
 {
 	life = LIFE;
 	healthBar->health = life;
-	numEstus = totalEstus;
-	textNumEstus->content = to_string(numEstus);
+	
+	static_cast<EstusFlask*>(consumables[0])->numEstus = static_cast<EstusFlask*>(consumables[0])->totalEstus;
+	static_cast<EstusFlask*>(consumables[0])->textNumEstus->content = to_string(static_cast<EstusFlask*>(consumables[0])->numEstus);
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #define LIFE 250
+#define TOTAL_CONSUMABLES 2
 
 #define WIDTH_DOWN 37
 #define HEIGHT_DOWN 53
@@ -31,6 +32,7 @@
 #include "EstusFlask.h"
 #include "Weapon.h"
 #include "Uchigatana.h"
+#include "BloodGem.h"
 
 class Player : public Actor
 {
@@ -43,6 +45,9 @@ public:
 	void draw(float scrollX = 0, float scrollY = 0) override; // Va a sobrescribir
 	void loseLife(int damage);
 	void restoreLife();
+	void loadConsumables();
+	void nextConsumable();
+
 	int life = LIFE;
 	int invulnerableTime = 0;
 	int orientation;
@@ -69,9 +74,7 @@ public:
 	HealthBar* healthBar;
 	Consumable* selectedConsumable;
 	Weapon* selectedWeapon;
-	Text* textNumEstus;
-	int numEstus = 10;
-	int totalEstus = 10;
-	int attackCadence = 30;
-	int attackTime = 0;
+
+	Consumable* consumables[TOTAL_CONSUMABLES];
+	int indexConsumables = 0;
 };
