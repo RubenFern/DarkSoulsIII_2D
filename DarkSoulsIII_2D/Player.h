@@ -65,12 +65,13 @@ public:
 
 	Animation* aDeath;
 	Animation* animation; // Referencia a la animación mostrada
+	
 	HealthBar* healthBar;
-
 	Consumable* selectedConsumable;
 	Weapon* selectedWeapon;
 	Text* textNumEstus;
 	int numEstus = 10;
+	int totalEstus = 10;
 	int attackCadence = 30;
 	int attackTime = 0;
 };

@@ -120,6 +120,9 @@
     <ClCompile Include="Uchigatana.cpp">
       <Filter>Archivos de origen\Actors\Weapons</Filter>
     </ClCompile>
+    <ClCompile Include="Knight.cpp">
+      <Filter>Archivos de origen\Actors\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -193,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="Uchigatana.h">
       <Filter>Archivos de encabezado\Actors\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Knight.h">
+      <Filter>Archivos de encabezado\Actors\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -10,7 +10,7 @@ HealthBar::HealthBar(int health, int height, float x, float y, Game* game)
 	width = health;
 }
 
-void HealthBar::draw()
+void HealthBar::draw(int x, int y)
 {
 	SDL_Rect rect;
 	rect.x = x;
@@ -34,5 +34,4 @@ void HealthBar::draw()
 		SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255); // Color negro para el borde
 		SDL_RenderDrawRect(game->renderer, &rectBorder);
 	}
-	
 }

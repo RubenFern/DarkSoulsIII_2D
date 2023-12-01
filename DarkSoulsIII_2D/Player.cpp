@@ -33,7 +33,6 @@ Player::Player(float x, float y, Game* game)
 }
 
 void Player::update() {
-	cout << numEstus << endl;
 	if (invulnerableTime > 0)
 		invulnerableTime--;
 
@@ -169,7 +168,7 @@ void Player::draw(float scrollX, float scrollY)
 		if (invulnerableTime % 10 >= 0 && invulnerableTime % 10 <= 5)
 			animation->draw(x - scrollX, y - scrollY);
 
-	healthBar->draw();
+	healthBar->draw(healthBar->x, healthBar->y);
 	selectedConsumable->draw(scrollX, scrollY);
 	selectedWeapon->draw(scrollX, scrollY);
 	textNumEstus->draw();
@@ -191,4 +190,7 @@ void Player::loseLife(int damage) {
 void Player::restoreLife() 
 {
 	life = LIFE;
+	healthBar->health = life;
+	numEstus = totalEstus;
+	textNumEstus->content = to_string(numEstus);
 }

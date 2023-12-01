@@ -1,17 +1,27 @@
 #include "Enemy.h"
 
 Enemy::Enemy(string filename, float x, float y, int width, int height, Game* game)
-	: Actor(filename, x, y, width, height, game) {
+	: Actor(filename, x, y, width, height, game) 
+{
+	healthBar = new HealthBar(life, 5, x - 22, y - 34, game);
 }
 
 void Enemy::draw(float scrollX, float scrollY) {
 	animation->draw(x - scrollX, y - scrollY);
+
+	healthBar->draw(x - 22 - scrollX, y - 34 - scrollY);
 }
 
-void Enemy::impacted() {
-	if (state != game->stateDying) {
+void Enemy::impacted(int damage) {
+	life -= damage;
+
+	if (life < 0)
+		life = 0;
+
+	healthBar->health = life;
+
+	if (life <= 0)
 		state = game->stateDying;
-	}
 }
 
 void Enemy::update() {
@@ -101,10 +111,146 @@ void Enemy::update() {
 
 	if (attackTime > 0)
 		attackTime--;
+
+	move();
 }
 
 void Enemy::move()
 {
+	if (state == game->stateDying || state == game->stateAttacking)
+	{
+		vx = 0;
+		vy = 0;
+		return;
+	}
+
+	Point* playerPosition = game->getCurrentPlayerPosition();
+
+	int dx = playerPosition->x - x;
+	int dy = playerPosition->y - y;
+
+	// Si el jugador está fuera del rango de visión del arquero
+	if (abs(dx) > VISION_FIELD || abs(dy) > VISION_FIELD)
+	{
+		vx = 0;
+		vy = 0;
+
+		if (dx > 0)
+		{
+			orientation = game->orientationLeft;
+			animation = aIdleLeft;
+		}
+		else if (dx < 0)
+		{
+			orientation = game->orientationRight;
+			animation = aIdleRight;
+		}
+		else if (dy > 0)
+		{
+			orientation = game->orientationUp;
+			animation = aIdleUp;
+		}
+		else if (dy < 0)
+		{
+			orientation = game->orientationDown;
+			animation = aIdleDown;
+		}
+
+		return;
+	}
+
+	// Si el jugador está en el rango de visión horizontal del arquero
+	if (abs(dx) < VISION_FIELD && abs(dx) > ERROR)
+	{
+		if (dx < 0)
+		{
+			orientation = game->orientationLeft;
+			animation = aRunningLeft;
+			vx = -1;
+		}
+		else
+		{
+			orientation = game->orientationRight;
+			animation = aRunningRight;
+			vx = 1;
+		}
+	}
+
+	// Si el jugador está en el rango de visión vertical del arquero
+	if (abs(dy) < VISION_FIELD && abs(dy) > ERROR)
+	{
+		if (dy < 0)
+		{
+			orientation = game->orientationUp;
+			animation = aRunningUp;
+			vy = -1;
+		}
+		else
+		{
+			orientation = game->orientationDown;
+			animation = aRunningDown;
+			vy = 1;
+		}
+	}
+
+	// Si el jugador está en el rango de ataque del arquero	
+	if (abs(dx) < ERROR && abs(dy) < ERROR && abs(dx) > 20 && abs(dy) > 20)
+	{
+		// Esquina superior izquierda
+		if (dx > 20 && dy < -20)
+		{
+			orientation = game->orientationRight;
+			animation = aRunningRight;
+			vx = 1;
+		}
+		// Esquina superior derecha
+		else if (dx < -20 && dy < -20)
+		{
+			orientation = game->orientationLeft;
+			animation = aRunningLeft;
+			vx = -1;
+		}
+		// Esquina inferior izquierda
+		else if (dx > 20 && dy > 20)
+		{
+			orientation = game->orientationRight;
+			animation = aRunningRight;
+			vx = 1;
+		}
+		// Esquina inferior derecha
+		else if (dx < -20 && dy > 20)
+		{
+			orientation = game->orientationLeft;
+			animation = aRunningLeft;
+			vx = -1;
+		}
+		else
+		{
+			if (vx > 0)
+			{
+				orientation = game->orientationLeft;
+				animation = aIdleLeft;
+			}
+			else if (vx < 0)
+			{
+				orientation = game->orientationRight;
+				animation = aIdleRight;
+			}
+			else if (vy > 0)
+			{
+				orientation = game->orientationUp;
+				animation = aIdleUp;
+			}
+			else if (vy < 0)
+			{
+				orientation = game->orientationDown;
+				animation = aIdleDown;
+			}
+
+			vx = 0;
+			vy = 0;
+		}
+	}
 }
 
 Projectile* Enemy::attack() 

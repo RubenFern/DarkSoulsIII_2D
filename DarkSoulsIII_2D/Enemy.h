@@ -1,8 +1,13 @@
 #pragma once
 
+#define ERROR 50
+#define VISION_FIELD 175
+
 #include "Actor.h"
 #include "Animation.h"
 #include "Projectile.h"
+#include "HealthBar.h"
+#include "Point.h"
 
 class Enemy : public Actor
 {
@@ -11,7 +16,7 @@ public:
 	virtual Projectile* attack();
 	virtual void draw(float scrollX = 0, float scrollY = 0) override; // Va a sobrescribir
 	virtual void update();
-	virtual void impacted(); // Recibe impacto y pone animación de morir
+	virtual void impacted(int damage); // Recibe impacto y pone animación de morir
 	virtual void move();
 	float vxIntelligence;
 	int state;
@@ -40,4 +45,6 @@ public:
 	Animation* aDeath;
 
 	Animation* animation; // Referencia a la animación mostrada
+
+	HealthBar* healthBar;
 };
