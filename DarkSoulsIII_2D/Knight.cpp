@@ -5,6 +5,7 @@ Knight::Knight(float x, float y, Game* game)
 {
 	life = 70;
 	damage = 45;
+	attackTime = attackCadence;
 	orientation = game->orientationDown;
 	state = game->stateMoving;
 	contactDamage = false;
@@ -36,6 +37,40 @@ Knight::Knight(float x, float y, Game* game)
 
 Projectile* Knight::attack()
 {
-	return nullptr;
+	Point* playerPosition = game->getCurrentPlayerPosition();
+
+	int dx = playerPosition->x - x;
+	int dy = playerPosition->y - y;
+
+	if (state != game->stateDying && attackTime == 0 && abs(dx) < ATTACK_DISTANCE && abs(dy) < ATTACK_DISTANCE)
+	{
+		vx = 0, vy = 0;
+		aAttackingLeft->currentFrame = 0; //"Rebobinar" animación
+		aAttackingRight->currentFrame = 0; //"Rebobinar" animación
+		aAttackingUp->currentFrame = 0; //"Rebobinar" animación
+		aAttackingDown->currentFrame = 0; //"Rebobinar" animación
+
+		attackTime = attackCadence;
+		state = game->stateAttacking;
+
+		Projectile* projectile = new Sword("res/disparo_jugador.png", x, y, 20, 20, game);
+		float vx = 0, vy = 0;
+
+		if (orientation == game->orientationLeft)
+			vx = -4;
+		else if (orientation == game->orientationDown)
+			vy = 4;
+		else if (orientation == game->orientationUp)
+			vy = -4;
+		else if (orientation == game->orientationRight)
+			vx = 4;
+
+		projectile->vx = vx;
+		projectile->vy = vy;
+
+		return projectile;
+	}
+
+	return NULL;
 }
 

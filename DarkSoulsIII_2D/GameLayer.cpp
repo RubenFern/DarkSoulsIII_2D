@@ -262,7 +262,8 @@ void GameLayer::update() {
 	}
 
 	for (auto const& projectileEnemy : projectilesEnemies) {
-		if (projectileEnemy->isInRender(scrollX, scrollY) == false || (projectileEnemy->vx == 0 && projectileEnemy->vy == 0)) {
+		if (projectileEnemy->isInRender(scrollX, scrollY) == false || (projectileEnemy->vx == 0 && projectileEnemy->vy == 0)
+			|| (dynamic_cast<Sword*>(projectileEnemy) != nullptr && dynamic_cast<Sword*>(projectileEnemy)->lifeTime == 0)) {
 
 			bool pInList = std::find(deleteProjectilesEnemies.begin(),
 								deleteProjectilesEnemies.end(),

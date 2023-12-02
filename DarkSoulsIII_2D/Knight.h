@@ -1,5 +1,7 @@
 #pragma once
 
+#define ATTACK_DISTANCE 40
+
 #define WIDTH_WALK_L_R 53
 #define HEIGHT_WALK_L_R_U_D 58
 #define WIDTH_WALK_U 45
@@ -18,16 +20,14 @@
 #define HEIGHT_DEATH 57
 
 #include "Enemy.h"
+#include "Sword.h"
 
 class Knight : public Enemy
 {
 public:
 	Knight(float x, float y, Game* game);
 	Projectile* attack() override;
-	//void draw(float scrollX = 0, float scrollY = 0) override;
-	//void update() override;
-	//void impacted(int damage) override;
-	//void move() override;
+
 	int attackCadence = 40;
 };
 

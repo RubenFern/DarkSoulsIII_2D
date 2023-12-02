@@ -5,6 +5,7 @@ Archer::Archer(float x, float y, Game* game)
 {
 	life = 50;
 	damage = 20;
+	attackTime = attackCadence;
 	orientation = game->orientationDown;
 	state = game->stateMoving;
 	contactDamage = false;
@@ -124,7 +125,6 @@ Projectile* Archer::attack()
 
 		return arrow;
 	}
-	else {
-		return NULL;
-	}
+		
+	return NULL;
 }
