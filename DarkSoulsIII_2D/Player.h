@@ -2,25 +2,7 @@
 
 #define LIFE 250
 #define TOTAL_CONSUMABLES 2
-
-#define WIDTH_DOWN 37
-#define HEIGHT_DOWN 53
-#define WIDTH_UP 37
-#define HEIGHT_UP 53
-#define WIDTH_LEFT 55
-#define HEIGHT_LEFT 53
-#define WIDTH_RIGHT 55
-#define HEIGHT_RIGHT 53
-
-#define WIDTH_ATTACK_R_L 69
-#define HEIGHT_ATTACK_R_L 59
-#define WIDTH_ATTACK_U 64
-#define HEIGHT_ATTACK_U 66
-#define WIDTH_ATTACK_D 72
-#define HEIGHT_ATTACK_D 68
-
-#define WIDTH_DEATH 35
-#define HEIGHT_DEATH 53
+#define TOTAL_WEAPONS 1
 
 #include "Actor.h"
 #include "Projectile.h"
@@ -33,6 +15,7 @@
 #include "Weapon.h"
 #include "Uchigatana.h"
 #include "BloodGem.h"
+#include "UchigatanaBleeding.h"
 
 class Player : public Actor
 {
@@ -47,6 +30,10 @@ public:
 	void restoreLife();
 	void loadConsumables();
 	void nextConsumable();
+	void loadWeapons();
+	void nextWeapon();
+	void loadCurrentWeapon();
+	void setSelectedWeapon(Weapon* weapon);
 
 	int life = LIFE;
 	int invulnerableTime = 0;
@@ -77,4 +64,6 @@ public:
 
 	Consumable* consumables[TOTAL_CONSUMABLES];
 	int indexConsumables = 0;
+	Weapon* weapons[TOTAL_WEAPONS];
+	int indexWeapons = 0;
 };

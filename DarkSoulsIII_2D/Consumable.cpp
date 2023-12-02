@@ -5,9 +5,13 @@ Consumable::Consumable(string filename, float x, float y, int width, int height,
 {
 }
 
+void Consumable::update() {}
+
 void Consumable::draw(float scrollX, float scrollY)
 {
 	Actor::draw(0, 0);
+
+	text->draw();
 }
 
 void Consumable::consume()
