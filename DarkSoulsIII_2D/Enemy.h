@@ -8,6 +8,7 @@
 #include "Projectile.h"
 #include "HealthBar.h"
 #include "Point.h"
+#include "Weapon.h"
 
 class Enemy : public Actor
 {
@@ -16,7 +17,7 @@ public:
 	virtual Projectile* attack();
 	virtual void draw(float scrollX = 0, float scrollY = 0) override; // Va a sobrescribir
 	virtual void update();
-	virtual void impacted(int damage); // Recibe impacto y pone animación de morir
+	virtual void impacted(Weapon* weapon); // Recibe impacto y pone animación de morir
 	virtual void move();
 	float vxIntelligence;
 	int state;
@@ -26,6 +27,7 @@ public:
 	int damage = 20;
 	int orientation;
 	bool contactDamage;
+	int numberOfImpacts;
 
 	Animation* aIdleRight;
 	Animation* aIdleLeft;

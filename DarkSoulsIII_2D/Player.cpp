@@ -180,6 +180,7 @@ void Player::loadConsumables()
 {
 	consumables[0] = new EstusFlask(WIDTH * 0.06, HEIGHT * 0.90, game);
 	consumables[1] = new BloodGem(WIDTH * 0.06, HEIGHT * 0.90, game);
+	consumables[2] = new FireGem(WIDTH * 0.06, HEIGHT * 0.90, game);
 }
 
 void Player::nextConsumable()

@@ -129,6 +129,9 @@
     <ClCompile Include="BloodGem.cpp">
       <Filter>Archivos de origen\Actors\Items</Filter>
     </ClCompile>
+    <ClCompile Include="FireGem.cpp">
+      <Filter>Archivos de origen\Actors\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -210,6 +213,9 @@
       <Filter>Archivos de encabezado\Actors\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="BloodGem.h">
+      <Filter>Archivos de encabezado\Actors\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="FireGem.h">
       <Filter>Archivos de encabezado\Actors\Items</Filter>
     </ClInclude>
   </ItemGroup>

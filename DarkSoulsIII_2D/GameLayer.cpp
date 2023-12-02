@@ -285,7 +285,7 @@ void GameLayer::update() {
 					deleteProjectiles.push_back(projectile);
 				}
 
-				enemy->impacted(player->selectedWeapon->damage);
+				enemy->impacted(player->selectedWeapon);
 				points++;
 				textPoints->content = to_string(points);
 			}

@@ -5,10 +5,10 @@
 #include "Consumable.h"
 #include "UchigatanaBleeding.h"
 
-class BloodGem : public Consumable
+class FireGem : public Consumable
 {
 public:
-	BloodGem(float x, float y, Game* game);
+	FireGem(float x, float y, Game* game);
 	void consume() override;
 	void update() override;
 	int useTime = TIME;

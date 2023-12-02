@@ -150,6 +150,7 @@
     <ClCompile Include="Consumable.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EstusFlask.cpp" />
+    <ClCompile Include="FireGem.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameLayer.cpp" />
     <ClCompile Include="HealthBar.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="Consumable.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EstusFlask.h" />
+    <ClInclude Include="FireGem.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameLayer.h" />
     <ClInclude Include="HealthBar.h" />

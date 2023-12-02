@@ -1,7 +1,7 @@
 #pragma once
 
 #define LIFE 250
-#define TOTAL_CONSUMABLES 2
+#define TOTAL_CONSUMABLES 3
 #define TOTAL_WEAPONS 1
 
 #include "Actor.h"
@@ -16,6 +16,7 @@
 #include "Uchigatana.h"
 #include "BloodGem.h"
 #include "UchigatanaBleeding.h"
+#include "FireGem.h"
 
 class Player : public Actor
 {

@@ -3,6 +3,7 @@
 Consumable::Consumable(string filename, float x, float y, int width, int height, Game* game) :
 	Actor(filename, x, y, width, height, game)
 {
+	text = new Text("", x, y, game);
 }
 
 void Consumable::update() {}

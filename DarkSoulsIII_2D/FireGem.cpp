@@ -1,14 +1,14 @@
-#include "BloodGem.h"
+#include "FireGem.h"
 #include "Player.h"
 #include "GameLayer.h"
 
-BloodGem::BloodGem(float x, float y, Game* game) :
-	Consumable("res/actors/objects/bloodgem.jpg", x, y, 80, 82, game)
+FireGem::FireGem(float x, float y, Game* game) :
+	Consumable("res/actors/objects/firegem.jpg", x, y, 80, 80, game)
 {
 	text = new Text(to_string(num), WIDTH * 0.04, HEIGHT * 0.85, game);
 }
 
-void BloodGem::update()
+void FireGem::update()
 {
 	cout << useTime << endl;
 
@@ -27,15 +27,15 @@ void BloodGem::update()
 	}
 }
 
-void BloodGem::consume()
+void FireGem::consume()
 {
 	isUsing = true;
 
 	Player* player = static_cast<GameLayer*>(game->gameLayer)->player;
 
 	UchigatanaBleeding* ub = new UchigatanaBleeding(WIDTH * 0.13, HEIGHT * 0.90, game);
-	ub->setDamage(10);
-	ub->stateBleeding = true;
+	ub->setDamage(70);
+	ub->stateBleeding = false;
 	ub->stateFreezing = false;
 
 	player->setSelectedWeapon(ub);

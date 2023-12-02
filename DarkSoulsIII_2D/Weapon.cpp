@@ -9,3 +9,8 @@ void Weapon::draw(float scrollX, float scrollY)
 {
 	Actor::draw(0, 0);
 }
+
+void Weapon::setDamage(int damage)
+{
+	this->damage = damage;
+}

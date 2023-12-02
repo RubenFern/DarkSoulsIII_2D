@@ -12,8 +12,20 @@ void Enemy::draw(float scrollX, float scrollY) {
 	healthBar->draw(x - 22 - scrollX, y - 34 - scrollY);
 }
 
-void Enemy::impacted(int damage) {
-	life -= damage;
+void Enemy::impacted(Weapon* weapon) {
+	// El arma tiene sangrado
+	if (weapon->stateBleeding)
+	{
+		numberOfImpacts++;
+
+		if (numberOfImpacts == IMPACTS_TO_BLEEDING)
+		{
+			numberOfImpacts = 0;
+			life -= 130;
+		}
+	}
+
+	life -= weapon->damage;
 
 	if (life < 0)
 		life = 0;

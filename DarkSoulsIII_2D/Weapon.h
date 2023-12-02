@@ -1,5 +1,8 @@
 #pragma once
 
+#define IMPACTS_TO_BLEEDING 5
+#define FREEZING_TIME 15
+
 #include "Actor.h"
 
 class Weapon : public Actor
@@ -7,10 +10,14 @@ class Weapon : public Actor
 public:
 	Weapon(string filename, float x, float y, int width, int height, Game* game);
 	void draw(float scrollX = 0, float scrollY = 0) override;
+    void setDamage(int damage);
 	string path;
 	int damage;
 	int attackCadence = 30;
 	int attackTime = 0;
+
+    bool stateBleeding = false;
+    bool stateFreezing = false;
 
     // ATTACK
     virtual int getWidthAttackRight() const = 0;
