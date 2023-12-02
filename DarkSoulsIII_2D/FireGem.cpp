@@ -29,6 +29,9 @@ void FireGem::update()
 
 void FireGem::consume()
 {
+	if (num == 0)
+		return;
+
 	isUsing = true;
 
 	Player* player = static_cast<GameLayer*>(game->gameLayer)->player;

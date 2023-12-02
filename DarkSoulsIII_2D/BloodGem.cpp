@@ -10,8 +10,6 @@ BloodGem::BloodGem(float x, float y, Game* game) :
 
 void BloodGem::update()
 {
-	cout << useTime << endl;
-
 	if (isUsing)
 	{
 		useTime--;
@@ -29,12 +27,15 @@ void BloodGem::update()
 
 void BloodGem::consume()
 {
+	if (num == 0)
+		return;
+
 	isUsing = true;
 
 	Player* player = static_cast<GameLayer*>(game->gameLayer)->player;
 
 	UchigatanaBleeding* ub = new UchigatanaBleeding(WIDTH * 0.13, HEIGHT * 0.90, game);
-	ub->setDamage(10);
+	ub->setDamage(50);
 	ub->stateBleeding = true;
 	ub->stateFreezing = false;
 
