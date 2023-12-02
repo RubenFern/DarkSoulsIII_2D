@@ -127,7 +127,7 @@ Projectile* Player::attack() {
 
 		selectedWeapon->attackTime = selectedWeapon->attackCadence;
 
-		Projectile* projectile = new Sword("res/disparo_jugador.png", x, y, 20, 20, game);
+		Projectile* projectile = selectedWeapon->attack(x, y);
 		float vx = 0, vy = 0;
 
 		if (orientation == game->orientationLeft)

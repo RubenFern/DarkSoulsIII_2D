@@ -4,12 +4,14 @@
 #define FREEZING_TIME 100
 
 #include "Actor.h"
+#include "Projectile.h"
 
 class Weapon : public Actor
 {
 public:
 	Weapon(string filename, float x, float y, int width, int height, Game* game);
 	void draw(float scrollX = 0, float scrollY = 0) override;
+    virtual Projectile* attack(float x, float y);
     void setDamage(int damage);
 	string path;
 	int damage;

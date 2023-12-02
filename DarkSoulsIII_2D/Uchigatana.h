@@ -6,19 +6,20 @@ class Uchigatana : public Weapon
 {
 public:
 	Uchigatana(float x, float y, Game* game);
+    Projectile* attack(float x, float y) override;
 	int attackCadence = 15;
 	int attackTime = 0;
 
     // ATTACK
     int getWidthAttackRight() const override { return 69; }
     int getWidthAttackLeft() const override { return 69; }
-    int getWidthAttackUp() const override { return 64; }
-    int getWidthAttackDown() const override { return 72; }
+    int getWidthAttackUp() const override { return 72; }
+    int getWidthAttackDown() const override { return 64; }
 
     int getHeightAttackRight() const override { return 59; }
     int getHeightAttackLeft() const override { return 59; }
-    int getHeightAttackUp() const override { return 66; }
-    int getHeightAttackDown() const override { return 68; }
+    int getHeightAttackUp() const override { return 68; }
+    int getHeightAttackDown() const override { return 66; }
 
     // MOVEMENT
     int getWidthMovementRight() const override { return 55; }

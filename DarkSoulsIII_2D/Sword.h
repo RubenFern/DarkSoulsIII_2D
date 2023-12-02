@@ -5,7 +5,7 @@
 class Sword : public Projectile
 {
 public:
-	Sword(string filename, float x, float y, int w, int h, Game* game);
+	Sword(float x, float y, Game* game);
 	void update() override;
 
 	int lifeTime = 8;

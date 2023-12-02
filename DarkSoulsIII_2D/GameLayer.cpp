@@ -393,9 +393,10 @@ void GameLayer::draw() {
 	for (auto const& projectileEnemy : projectilesEnemies)
 		projectileEnemy->draw(scrollX, scrollY);
 
-	player->draw(scrollX, scrollY);
 	for (auto const& enemy : enemies)
 		enemy->draw(scrollX, scrollY);
+
+	player->draw(scrollX, scrollY);
 
 	// HUD
 	if (pause)

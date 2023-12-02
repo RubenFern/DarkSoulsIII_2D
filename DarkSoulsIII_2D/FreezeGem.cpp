@@ -27,8 +27,8 @@ void FreezeGem::update()
 
 void FreezeGem::consume()
 {
-	//if (num == 0)
-		//return;
+	if (num == 0)
+		return;
 
 	isUsing = true;
 

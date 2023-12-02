@@ -14,3 +14,8 @@ void Weapon::setDamage(int damage)
 {
 	this->damage = damage;
 }
+
+Projectile* Weapon::attack(float x, float y)
+{
+	return NULL;
+}

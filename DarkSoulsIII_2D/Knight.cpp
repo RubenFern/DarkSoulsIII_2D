@@ -56,7 +56,7 @@ Projectile* Knight::attack()
 		attackTime = attackCadence;
 		state = game->stateAttacking;
 
-		Projectile* projectile = new Sword("res/disparo_jugador.png", x, y, 20, 20, game);
+		Projectile* projectile = new Sword(x, y, game);
 		float vx = 0, vy = 0;
 
 		if (orientation == game->orientationLeft)
