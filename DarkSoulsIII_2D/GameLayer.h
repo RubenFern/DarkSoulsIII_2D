@@ -12,6 +12,7 @@
 #include "Bonfire.h"
 #include "Consumable.h"
 #include "FireKeeper.h"
+#include "MenuUpLevel.h"
 
 #include "Space.h" // importar
 
@@ -39,8 +40,10 @@ public:
 	void impactedPlayer(Projectile* p);
 	void processDoor();
 	Actor* message;
+	MenuUpLevel* menuUpLevel;
 	bool pause;
 	bool playingMusic;
+	bool isUpLevel;
 	// Elementos de interfaz
 	SDL_GameController* gamePad;
 

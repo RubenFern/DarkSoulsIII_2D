@@ -1,6 +1,7 @@
 #pragma once
 
 #define LIFE 250
+#define MANA 150
 #define TOTAL_CONSUMABLES 4
 #define TOTAL_WEAPONS 1
 
@@ -40,10 +41,16 @@ public:
 	void interact(FireKeeper* fireKeeper);
 
 	int life = LIFE;
+	int mana = MANA;
 	int invulnerableTime = 0;
 	int orientation;
 	int state;
 	int souls = 0;
+	int damageBase = 0;
+
+	int costSoulsUpLife = 100;
+	int costSoulsUpMana = 100;
+	int costSoulsUpDamage = 100;
 
 	Animation* aIdleRight;
 	Animation* aIdleLeft;

@@ -12,9 +12,9 @@ void Enemy::draw(float scrollX, float scrollY) {
 	healthBar->draw(x - 22 - scrollX, y - 34 - scrollY);
 }
 
-void Enemy::impacted(Weapon* weapon) {
+void Enemy::impacted(Player* player) {
 	// El arma tiene sangrado
-	if (weapon->stateBleeding)
+	if (player->selectedWeapon->stateBleeding)
 	{
 		numberOfImpacts++;
 
@@ -27,12 +27,12 @@ void Enemy::impacted(Weapon* weapon) {
 	else
 		numberOfImpacts = 0;
 
-	if (weapon->stateFreezing)
+	if (player->selectedWeapon->stateFreezing)
 		freezeTime = FREEZING_TIME;
 	else
 		freezeTime = 0;
 
-	life -= weapon->damage;
+	life -= player->selectedWeapon->damage + player->damageBase;
 
 	if (life < 0)
 		life = 0;

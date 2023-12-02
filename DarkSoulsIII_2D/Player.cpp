@@ -3,6 +3,7 @@
 Player::Player(float x, float y, Game* game)
 	: Actor("res/actors/player-katana/idle/down.png", x, y, 37, 53, game) {
 
+	damageBase = 20;
 	orientation = game->orientationDown;
 	state = game->stateMoving;
 
@@ -283,6 +284,4 @@ void Player::interact(FireKeeper* fireKeeper)
 		fireKeeper->orientation = game->orientationDown;
 	else if (y + errorMargin < fireKeeper->y)
 		fireKeeper->orientation = game->orientationUp;
-
-	fireKeeper->isUpLevel = true;
 }

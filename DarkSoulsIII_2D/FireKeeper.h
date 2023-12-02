@@ -11,7 +11,6 @@ public:
 	void draw(float scrollX = 0, float scrollY = 0) override;
 	int orientation;
 	int state;
-	bool isUpLevel = false;
 
 	Animation* aIdleRight;
 	Animation* aIdleLeft;

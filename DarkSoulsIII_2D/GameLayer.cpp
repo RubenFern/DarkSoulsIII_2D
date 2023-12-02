@@ -5,6 +5,7 @@ GameLayer::GameLayer(Game* game)
 	//llama al constructor del padre : Layer(renderer)
 	pause = true;
 	message = new Actor("res/mensaje_como_jugar.png", WIDTH * 0.5, HEIGHT * 0.5, WIDTH, HEIGHT, game);
+	menuUpLevel = new MenuUpLevel(game);
 
 	gamePad = SDL_GameControllerOpen(0);
 	init();
@@ -16,6 +17,7 @@ void GameLayer::init() {
 	scrollY = 0;
 	tiles.clear();
 
+	fireKeeper = NULL;
 	iconSouls = new Actor("res/actors/icon/souls.png", WIDTH * 0.9, HEIGHT * 0.94, 26, 26, game);
 	textSouls = new Text("hola", WIDTH * 0.95, HEIGHT * 0.94, game);
 	textSouls->content = to_string(0);
@@ -224,7 +226,7 @@ void GameLayer::processControls() {
 }
 
 void GameLayer::update() {
-	if (pause)
+	if (pause || isUpLevel)
 		return;
 
 	processDoor();
@@ -299,7 +301,7 @@ void GameLayer::update() {
 					deleteProjectiles.push_back(projectile);
 				}
 
-				enemy->impacted(player->selectedWeapon);
+				enemy->impacted(player);
 				
 				if (enemy->life <= 0) 
 				{
@@ -427,6 +429,9 @@ void GameLayer::draw() {
 	// HUD
 	if (pause)
 		message->draw();
+
+	if (isUpLevel)
+		menuUpLevel->draw();
 
 	SDL_RenderPresent(game->renderer); // Renderiza
 }
@@ -562,7 +567,40 @@ void GameLayer::keysToControls(SDL_Event event) {
 			break;
 		case SDLK_q: // interactuar
 			if (abs(player->x - fireKeeper->x) < 40 && abs(player->y - fireKeeper->y) < 40)
+			{
 				player->interact(fireKeeper);
+				isUpLevel = true;
+			}
+			break;
+		case SDLK_2: // Subir vida
+			if (isUpLevel && player->souls >= player->costSoulsUpLife)
+			{
+				player->souls -= player->costSoulsUpLife;
+				player->costSoulsUpLife *= 2;
+				player->life += 20;
+				textSouls->content = to_string(player->souls);
+			}
+			break;
+		case SDLK_3: // Subir magia
+			if (isUpLevel && player->souls >= player->costSoulsUpMana)
+			{
+				player->souls -= player->costSoulsUpMana;
+				player->costSoulsUpMana *= 2;
+				player->mana += 20;
+				textSouls->content = to_string(player->souls);
+			}
+			break;
+		case SDLK_4: // Subir ataque
+			if (isUpLevel && player->souls >= player->costSoulsUpDamage)
+			{
+				player->souls -= player->costSoulsUpDamage;
+				player->costSoulsUpDamage *= 2;
+				player->damageBase += 10;
+				textSouls->content = to_string(player->souls);
+			}
+			break;
+		case SDLK_5: // Abandonar menú subir nivel
+			isUpLevel = false;
 			break;
 		}
 	}
@@ -623,7 +661,5 @@ void GameLayer::processDoor() {
 		game->currentLevel = 3;
 		init();
 	}
-
-	fireKeeper = NULL;
 }
 
