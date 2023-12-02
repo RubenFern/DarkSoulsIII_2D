@@ -29,6 +29,7 @@ public:
 	bool contactDamage;
 	int numberOfImpacts;
 	int freezeTime = 0;
+	int soulsValue = 0;
 
 	Animation* aIdleRight;
 	Animation* aIdleLeft;

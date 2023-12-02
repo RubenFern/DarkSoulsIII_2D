@@ -1,0 +1,6 @@
+IDLE
+
+	left	w 32, h 51
+	right	w 32, h 51
+	down	w 32, h 50
+	up	w 32, h 50

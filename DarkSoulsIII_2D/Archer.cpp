@@ -5,6 +5,7 @@ Archer::Archer(float x, float y, Game* game)
 {
 	life = 50;
 	damage = 20;
+	soulsValue = 200;
 	attackTime = attackCadence;
 	orientation = game->orientationDown;
 	state = game->stateMoving;

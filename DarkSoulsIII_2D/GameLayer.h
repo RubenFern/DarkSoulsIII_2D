@@ -11,7 +11,7 @@
 #include "Tile.h"
 #include "Bonfire.h"
 #include "Consumable.h"
-
+#include "FireKeeper.h"
 
 #include "Space.h" // importar
 
@@ -51,11 +51,12 @@ public:
 	int mapHeight;
 	list<Tile*> tiles;
 
-	Text* textPoints;
-	int points;
+	Text* textSouls;
+	Actor* iconSouls;
 	int newEnemyTime = 0;
 	Player* player;
 	Background* background;
+	FireKeeper* fireKeeper;
 	list<Enemy*> enemies;
 	list<Projectile*> projectiles;
 	list<Projectile*> projectilesEnemies;

@@ -270,3 +270,19 @@ void Player::setSelectedWeapon(Weapon* weapon)
 	selectedWeapon = weapon;
 	loadCurrentWeapon();
 }
+
+void Player::interact(FireKeeper* fireKeeper)
+{
+	int errorMargin = 10;
+
+	if (x + errorMargin < fireKeeper->x)
+		fireKeeper->orientation = game->orientationLeft;
+	else if (x - errorMargin > fireKeeper->x)
+		fireKeeper->orientation = game->orientationRight;
+	else if (y - errorMargin > fireKeeper->y)
+		fireKeeper->orientation = game->orientationDown;
+	else if (y + errorMargin < fireKeeper->y)
+		fireKeeper->orientation = game->orientationUp;
+
+	fireKeeper->isUpLevel = true;
+}

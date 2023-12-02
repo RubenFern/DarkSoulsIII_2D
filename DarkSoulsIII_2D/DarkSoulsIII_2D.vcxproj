@@ -151,6 +151,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EstusFlask.cpp" />
     <ClCompile Include="FireGem.cpp" />
+    <ClCompile Include="FireKeeper.cpp" />
     <ClCompile Include="FreezeGem.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameLayer.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EstusFlask.h" />
     <ClInclude Include="FireGem.h" />
+    <ClInclude Include="FireKeeper.h" />
     <ClInclude Include="FreezeGem.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameLayer.h" />

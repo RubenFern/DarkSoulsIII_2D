@@ -16,9 +16,9 @@ void GameLayer::init() {
 	scrollY = 0;
 	tiles.clear();
 
-	points = 0;
-	textPoints = new Text("hola", WIDTH * 0.92, HEIGHT * 0.04, game);
-	textPoints->content = to_string(points);
+	iconSouls = new Actor("res/actors/icon/souls.png", WIDTH * 0.9, HEIGHT * 0.94, 26, 26, game);
+	textSouls = new Text("hola", WIDTH * 0.95, HEIGHT * 0.94, game);
+	textSouls->content = to_string(0);
 
 	background = new Background("res/fondo.png", WIDTH * 0.5, HEIGHT * 0.5, 0, game);
 
@@ -141,6 +141,17 @@ void GameLayer::loadMapObject(char character, float x, float y)
 		space->addDynamicActor(enemy);
 		break;
 	}
+	case 'F': {		// Guardiana del santuario de fuego
+		Tile* tile = new Tile("res/blocks/floor.png", x, y, game);
+		tile->y = tile->y - tile->height / 2;
+		tiles.push_back(tile);
+
+		fireKeeper = new FireKeeper(x, y, game);
+		// modificación para empezar a contar desde el suelo.
+		fireKeeper->y = fireKeeper->y - fireKeeper->height / 2;
+		space->addDynamicActor(fireKeeper);
+		break;
+	}
 	}
 }
 
@@ -221,6 +232,8 @@ void GameLayer::update() {
 	space->update();
 	background->update();
 	player->update();
+	if (fireKeeper != NULL)
+		fireKeeper->update();
 
 	for (auto const& bonfire : bonfires)
 		if (player->isOverlap(bonfire))
@@ -287,8 +300,15 @@ void GameLayer::update() {
 				}
 
 				enemy->impacted(player->selectedWeapon);
-				points++;
-				textPoints->content = to_string(points);
+				
+				if (enemy->life <= 0) 
+				{
+					if (player->souls < 9999999)
+					{
+						player->souls += enemy->soulsValue;
+						textSouls->content = to_string(player->souls);
+					}
+				}
 			}
 		}
 	}
@@ -396,7 +416,13 @@ void GameLayer::draw() {
 	for (auto const& enemy : enemies)
 		enemy->draw(scrollX, scrollY);
 
+	if (fireKeeper != NULL)
+		fireKeeper->draw(scrollX, scrollY);
+
 	player->draw(scrollX, scrollY);
+
+	iconSouls->draw();
+	textSouls->draw();
 
 	// HUD
 	if (pause)
@@ -534,6 +560,10 @@ void GameLayer::keysToControls(SDL_Event event) {
 		case SDLK_f: // cambiar objeto consumible
 			player->nextConsumable();
 			break;
+		case SDLK_q: // interactuar
+			if (abs(player->x - fireKeeper->x) < 40 && abs(player->y - fireKeeper->y) < 40)
+				player->interact(fireKeeper);
+			break;
 		}
 	}
 	if (event.type == SDL_KEYUP) {
@@ -593,5 +623,7 @@ void GameLayer::processDoor() {
 		game->currentLevel = 3;
 		init();
 	}
+
+	fireKeeper = NULL;
 }
 

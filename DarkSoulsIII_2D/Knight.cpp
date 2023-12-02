@@ -5,6 +5,7 @@ Knight::Knight(float x, float y, Game* game)
 {
 	life = 70;
 	damage = 45;
+	soulsValue = 300;
 	attackTime = attackCadence;
 	orientation = game->orientationDown;
 	state = game->stateMoving;
