@@ -132,6 +132,12 @@
     <ClCompile Include="FireGem.cpp">
       <Filter>Archivos de origen\Actors\Items</Filter>
     </ClCompile>
+    <ClCompile Include="FreezeGem.cpp">
+      <Filter>Archivos de origen\Actors\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="UchigatanaFreezing.cpp">
+      <Filter>Archivos de origen\Actors\Weapons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -217,6 +223,12 @@
     </ClInclude>
     <ClInclude Include="FireGem.h">
       <Filter>Archivos de encabezado\Actors\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="FreezeGem.h">
+      <Filter>Archivos de encabezado\Actors\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="UchigatanaFreezing.h">
+      <Filter>Archivos de encabezado\Actors\Weapons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

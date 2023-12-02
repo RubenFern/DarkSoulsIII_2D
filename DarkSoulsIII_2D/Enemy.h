@@ -28,6 +28,7 @@ public:
 	int orientation;
 	bool contactDamage;
 	int numberOfImpacts;
+	int freezeTime = 0;
 
 	Animation* aIdleRight;
 	Animation* aIdleLeft;

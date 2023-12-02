@@ -1,7 +1,7 @@
 #pragma once
 
 #define IMPACTS_TO_BLEEDING 5
-#define FREEZING_TIME 15
+#define FREEZING_TIME 100
 
 #include "Actor.h"
 

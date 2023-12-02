@@ -24,6 +24,13 @@ void Enemy::impacted(Weapon* weapon) {
 			life -= 130;
 		}
 	}
+	else
+		numberOfImpacts = 0;
+
+	if (weapon->stateFreezing)
+		freezeTime = FREEZING_TIME;
+	else
+		freezeTime = 0;
 
 	life -= weapon->damage;
 
@@ -124,11 +131,18 @@ void Enemy::update() {
 	if (attackTime > 0)
 		attackTime--;
 
+	if (freezeTime > 0)
+		freezeTime--;
+
+	cout << freezeTime << endl;
 	move();
 }
 
 void Enemy::move()
 {
+	if (freezeTime > 0)
+		return;
+
 	if (state == game->stateDying || state == game->stateAttacking)
 	{
 		vx = 0;

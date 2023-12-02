@@ -37,12 +37,15 @@ Archer::Archer(float x, float y, Game* game)
 
 Projectile* Archer::attack()
 {
+	if (freezeTime > 0)
+		return NULL;
+
 	Point* playerPosition = game->getCurrentPlayerPosition();
 	
 	int dx = playerPosition->x - x;
 	int dy = playerPosition->y - y;
 
-	if (attackTime == 0 && abs(dx) < VISION_FIELD && abs(dy) < VISION_FIELD)
+	if (state != game->stateDying && state != game->stateDead && attackTime == 0 && abs(dx) < VISION_FIELD && abs(dy) < VISION_FIELD)
 	{
 		vx = 0, vy = 0;
 		aAttackingLeft->currentFrame = 0; //"Rebobinar" animación

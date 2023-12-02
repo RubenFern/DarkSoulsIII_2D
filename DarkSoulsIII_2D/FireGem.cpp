@@ -10,8 +10,6 @@ FireGem::FireGem(float x, float y, Game* game) :
 
 void FireGem::update()
 {
-	cout << useTime << endl;
-
 	if (isUsing)
 	{
 		useTime--;

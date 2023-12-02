@@ -37,12 +37,15 @@ Knight::Knight(float x, float y, Game* game)
 
 Projectile* Knight::attack()
 {
+	if (freezeTime > 0)
+		return NULL;
+
 	Point* playerPosition = game->getCurrentPlayerPosition();
 
 	int dx = playerPosition->x - x;
 	int dy = playerPosition->y - y;
 
-	if (state != game->stateDying && attackTime == 0 && abs(dx) < ATTACK_DISTANCE && abs(dy) < ATTACK_DISTANCE)
+	if (state != game->stateDying && state != game->stateDead && attackTime == 0 && abs(dx) < ATTACK_DISTANCE && abs(dy) < ATTACK_DISTANCE)
 	{
 		vx = 0, vy = 0;
 		aAttackingLeft->currentFrame = 0; //"Rebobinar" animación

@@ -1,0 +1,20 @@
+IDLE
+	left	w: 40, h: 56
+	right	w: 40, h: 56
+	up	w: 42, h: 53
+	down	w: 40, h: 53
+
+MOVE
+	left	w: 47, h: 56
+	right	w: 47, h: 56
+	up	w: 42, h: 56
+	down	w: 40, h: 53
+
+ATTACK
+	left	w: 108, h: 52
+	right 	w: 108, h: 52
+	up	w: 102, h: 70
+	down	w: 106, h: 69
+
+DEATH
+	w: 40, h: 53
