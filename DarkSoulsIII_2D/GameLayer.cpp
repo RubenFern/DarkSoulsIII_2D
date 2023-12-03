@@ -579,6 +579,8 @@ void GameLayer::keysToControls(SDL_Event event) {
 				player->costSoulsUpLife *= 2;
 				player->life += 20;
 				textSouls->content = to_string(player->souls);
+				player->healthBar->health = player->life;
+				player->healthBar->width = player->life;
 			}
 			break;
 		case SDLK_3: // Subir magia

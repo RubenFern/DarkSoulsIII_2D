@@ -32,7 +32,7 @@ void Enemy::impacted(Player* player) {
 	else
 		freezeTime = 0;
 
-	life -= player->selectedWeapon->damage + player->damageBase;
+	life -= player->getDamage();
 
 	if (life < 0)
 		life = 0;

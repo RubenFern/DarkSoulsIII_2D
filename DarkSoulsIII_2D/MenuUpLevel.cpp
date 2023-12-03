@@ -1,5 +1,4 @@
 #include "MenuUpLevel.h"
-#include "Player.h"
 #include "GameLayer.h"
 
 MenuUpLevel::MenuUpLevel(Game* game)
@@ -26,7 +25,8 @@ void MenuUpLevel::draw(float scrollX, float scrollY)
 	for (int i = 0; i < OPTIONS; i++)
 		options[i]->draw();
 
-	Player* player = static_cast<GameLayer*>(game->gameLayer)->player;
+	if (player == nullptr)
+		player = static_cast<GameLayer*>(game->gameLayer)->player;
 
 	stats[0]->content = "Vida: " + to_string(player->life);
 	stats[1]->content = "Magia: " + to_string(player->mana);

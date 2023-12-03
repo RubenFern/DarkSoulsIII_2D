@@ -17,6 +17,8 @@ Player::Player(float x, float y, Game* game)
 
 	loadCurrentWeapon();
 
+	souls = 1000;
+
 	animation = aIdleDown;
 }
 
@@ -284,4 +286,9 @@ void Player::interact(FireKeeper* fireKeeper)
 		fireKeeper->orientation = game->orientationDown;
 	else if (y + errorMargin < fireKeeper->y)
 		fireKeeper->orientation = game->orientationUp;
+}
+
+int Player::getDamage()
+{
+	return damageBase + selectedWeapon->damage;
 }

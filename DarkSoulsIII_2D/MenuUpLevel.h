@@ -7,6 +7,7 @@
 
 #include "Actor.h"
 #include "Text.h"
+#include "Player.h"
 
 class MenuUpLevel : public Actor
 {
@@ -18,5 +19,6 @@ public:
 
 	Text* options[OPTIONS];
 	Text* stats[STATS];
+	Player* player;
 };
 

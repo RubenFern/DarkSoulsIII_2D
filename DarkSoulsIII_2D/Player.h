@@ -39,6 +39,7 @@ public:
 	void loadCurrentWeapon();
 	void setSelectedWeapon(Weapon* weapon);
 	void interact(FireKeeper* fireKeeper);
+	int getDamage();
 
 	int life = LIFE;
 	int mana = MANA;
