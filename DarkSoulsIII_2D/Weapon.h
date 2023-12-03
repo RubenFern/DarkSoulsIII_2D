@@ -32,6 +32,8 @@ public:
     virtual int getHeightAttackUp() const = 0;
     virtual int getHeightAttackDown() const = 0;
 
+    virtual int getTotalFramesAttack() const = 0;
+
     // MOVEMENT
     virtual int getWidthMovementRight() const = 0;
     virtual int getWidthMovementLeft() const = 0;
@@ -42,6 +44,8 @@ public:
     virtual int getHeightMovementLeft() const = 0;
     virtual int getHeightMovementUp() const = 0;
     virtual int getHeightMovementDown() const = 0;
+
+    virtual int getTotalFramesMovement() const = 0;
 
     // IDLE
     virtual int getWidthIdleRight() const = 0;
@@ -57,5 +61,7 @@ public:
     // DEATH
     virtual int getWidthDeath() const = 0;
     virtual int getHeightDeath() const = 0;
+
+    virtual int getTotalFramesDeath() const = 0;
 };
 

@@ -209,6 +209,7 @@ void Player::restoreLife()
 void Player::loadWeapons()
 {
 	weapons[0] = new Uchigatana(WIDTH * 0.13, HEIGHT * 0.90, game);
+	weapons[1] = new SageCrystalStaff(WIDTH * 0.13, HEIGHT * 0.90, game);
 }
 
 void Player::nextWeapon()
@@ -225,47 +226,82 @@ void Player::nextWeapon()
 void Player::loadCurrentWeapon()
 {
 	aAttackingRight = new Animation("res/actors/player/" + selectedWeapon->path + "/attack/right.png", 
-		selectedWeapon->getWidthAttackRight(), selectedWeapon->getHeightAttackRight(), 
-		selectedWeapon->getWidthAttackRight() * 6, selectedWeapon->getHeightAttackRight(), 3, 6, false, game);
+									selectedWeapon->getWidthAttackRight(), 
+									selectedWeapon->getHeightAttackRight(), 
+									selectedWeapon->getWidthAttackRight() * selectedWeapon->getTotalFramesAttack(), 
+									selectedWeapon->getHeightAttackRight(), 3, 
+									selectedWeapon->getTotalFramesAttack(), false, game);
 	aAttackingLeft = new Animation("res/actors/player/" + selectedWeapon->path + "/attack/left.png",
-		selectedWeapon->getWidthAttackLeft(), selectedWeapon->getHeightAttackLeft(), 
-		selectedWeapon->getWidthAttackLeft() * 6, selectedWeapon->getHeightAttackLeft(), 3, 6, false, game);
+									selectedWeapon->getWidthAttackLeft(), 
+									selectedWeapon->getHeightAttackLeft(), 
+									selectedWeapon->getWidthAttackLeft() * selectedWeapon->getTotalFramesAttack(), 
+									selectedWeapon->getHeightAttackLeft(), 3, 
+									selectedWeapon->getTotalFramesAttack(), false, game);
 	aAttackingDown = new Animation("res/actors/player/" + selectedWeapon->path + "/attack/down.png", 
-		selectedWeapon->getWidthAttackDown(), selectedWeapon->getHeightAttackDown(), 
-		selectedWeapon->getWidthAttackDown() * 6, selectedWeapon->getHeightAttackDown(), 3, 6, false, game);
+									selectedWeapon->getWidthAttackDown(), 
+									selectedWeapon->getHeightAttackDown(), 
+									selectedWeapon->getWidthAttackDown() * selectedWeapon->getTotalFramesAttack(), 
+									selectedWeapon->getHeightAttackDown(), 3, 
+									selectedWeapon->getTotalFramesAttack(), false, game);
 	aAttackingUp = new Animation("res/actors/player/" + selectedWeapon->path + "/attack/up.png",
-		selectedWeapon->getWidthAttackUp(), selectedWeapon->getHeightAttackUp(), 
-		selectedWeapon->getWidthAttackUp() * 6, selectedWeapon->getHeightAttackUp(), 3, 6, false, game);
+									selectedWeapon->getWidthAttackUp(), 
+									selectedWeapon->getHeightAttackUp(), 
+									selectedWeapon->getWidthAttackUp() * selectedWeapon->getTotalFramesAttack(), 
+									selectedWeapon->getHeightAttackUp(), 3, 
+									selectedWeapon->getTotalFramesAttack(), false, game);
 	
 	aIdleRight = new Animation("res/actors/player/" + selectedWeapon->path + "/idle/right.png",
-		selectedWeapon->getWidthIdleRight(), selectedWeapon->getHeightIdleRight(), 
-		selectedWeapon->getWidthIdleRight(), selectedWeapon->getHeightIdleRight(), 6, 1, true, game);
+									selectedWeapon->getWidthIdleRight(), 
+									selectedWeapon->getHeightIdleRight(), 
+									selectedWeapon->getWidthIdleRight(), 
+									selectedWeapon->getHeightIdleRight(), 6, 1, true, game);
 	aIdleLeft = new Animation("res/actors/player/" + selectedWeapon->path + "/idle/left.png",
-		selectedWeapon->getWidthIdleLeft(), selectedWeapon->getHeightIdleLeft(), 
-		selectedWeapon->getWidthIdleLeft(), selectedWeapon->getHeightIdleLeft(), 6, 1, true, game);
+									selectedWeapon->getWidthIdleLeft(), 
+									selectedWeapon->getHeightIdleLeft(), 
+									selectedWeapon->getWidthIdleLeft(), 
+									selectedWeapon->getHeightIdleLeft(), 6, 1, true, game);
 	aIdleDown = new Animation("res/actors/player/" + selectedWeapon->path + "/idle/down.png",
-		selectedWeapon->getWidthIdleDown(), selectedWeapon->getHeightIdleDown(), 
-		selectedWeapon->getWidthIdleDown(), selectedWeapon->getHeightIdleDown(), 6, 1, true, game);
+									selectedWeapon->getWidthIdleDown(), 
+									selectedWeapon->getHeightIdleDown(), 
+									selectedWeapon->getWidthIdleDown(), 
+									selectedWeapon->getHeightIdleDown(), 6, 1, true, game);
 	aIdleUp = new Animation("res/actors/player/" + selectedWeapon->path + "/idle/up.png",
-		selectedWeapon->getWidthIdleUp(), selectedWeapon->getHeightIdleUp(), 
-		selectedWeapon->getWidthIdleUp(), selectedWeapon->getHeightIdleUp(), 6, 1, true, game);
+									selectedWeapon->getWidthIdleUp(), 
+									selectedWeapon->getHeightIdleUp(), 
+									selectedWeapon->getWidthIdleUp(), 
+									selectedWeapon->getHeightIdleUp(), 6, 1, true, game);
 
 	aRunningRight = new Animation("res/actors/player/" + selectedWeapon->path + "/walk/right.png",
-		selectedWeapon->getWidthMovementRight(), selectedWeapon->getHeightMovementRight(), 
-		selectedWeapon->getWidthMovementRight() * 9, selectedWeapon->getHeightMovementRight(), 3, 9, true, game);
+									selectedWeapon->getWidthMovementRight(), 
+									selectedWeapon->getHeightMovementRight(), 
+									selectedWeapon->getWidthMovementRight() * selectedWeapon->getTotalFramesMovement(), 
+									selectedWeapon->getHeightMovementRight(), 3, 
+									selectedWeapon->getTotalFramesMovement(), true, game);
 	aRunningLeft = new Animation("res/actors/player/" + selectedWeapon->path + "/walk/left.png",
-		selectedWeapon->getWidthMovementLeft(), selectedWeapon->getHeightMovementLeft(), 
-		selectedWeapon->getWidthMovementLeft() * 9, selectedWeapon->getHeightMovementLeft(), 3, 9, true, game);
+									selectedWeapon->getWidthMovementLeft(), 
+									selectedWeapon->getHeightMovementLeft(), 
+									selectedWeapon->getWidthMovementLeft() * selectedWeapon->getTotalFramesMovement(), 
+									selectedWeapon->getHeightMovementLeft(), 3, 
+									selectedWeapon->getTotalFramesMovement(), true, game);
 	aRunningDown = new Animation("res/actors/player/" + selectedWeapon->path + "/walk/down.png",
-		selectedWeapon->getWidthMovementDown(), selectedWeapon->getHeightMovementDown(), 
-		selectedWeapon->getWidthMovementDown() * 9, selectedWeapon->getHeightMovementDown(), 3, 9, true, game);
+									selectedWeapon->getWidthMovementDown(),
+									selectedWeapon->getHeightMovementDown(), 
+									selectedWeapon->getWidthMovementDown() * selectedWeapon->getTotalFramesMovement(), 
+									selectedWeapon->getHeightMovementDown(), 3, 
+									selectedWeapon->getTotalFramesMovement(), true, game);
 	aRunningUp = new Animation("res/actors/player/" + selectedWeapon->path + "/walk/up.png", 
-		selectedWeapon->getWidthMovementUp(), selectedWeapon->getHeightMovementUp(), 
-		selectedWeapon->getWidthMovementUp() * 9, selectedWeapon->getHeightMovementUp(), 3, 9, true, game);
+									selectedWeapon->getWidthMovementUp(), 
+									selectedWeapon->getHeightMovementUp(), 
+									selectedWeapon->getWidthMovementUp() * selectedWeapon->getTotalFramesMovement(),
+									selectedWeapon->getHeightMovementUp(), 3, 
+									selectedWeapon->getTotalFramesMovement(), true, game);
 
 	aDeath = new Animation("res/actors/player/" + selectedWeapon->path + "/death/death.png",
-		selectedWeapon->getWidthDeath(), selectedWeapon->getHeightDeath(), 
-		selectedWeapon->getWidthDeath() * 6, selectedWeapon->getHeightDeath(), 6, 6, false, game);
+									selectedWeapon->getWidthDeath(), 
+									selectedWeapon->getHeightDeath(), 
+									selectedWeapon->getWidthDeath() * selectedWeapon->getTotalFramesDeath(), 
+									selectedWeapon->getHeightDeath(), 6, 
+									selectedWeapon->getTotalFramesDeath(), false, game);
 }
 
 void Player::setSelectedWeapon(Weapon* weapon)

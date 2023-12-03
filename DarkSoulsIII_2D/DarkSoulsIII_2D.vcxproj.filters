@@ -43,6 +43,12 @@
     <Filter Include="Archivos de origen\Actors\Items">
       <UniqueIdentifier>{8562755d-d5ec-4436-8ae3-29c67b6dab9c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Actors\HUD">
+      <UniqueIdentifier>{181b4841-abb6-4872-81f9-b699e159afbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Actors\HUD">
+      <UniqueIdentifier>{ee132a71-ad7a-4c55-a3b2-8a2e8ab46bb9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -105,9 +111,6 @@
     <ClCompile Include="Bonfire.cpp">
       <Filter>Archivos de origen\Actors\Items</Filter>
     </ClCompile>
-    <ClCompile Include="HealthBar.cpp">
-      <Filter>Archivos de origen\Actors</Filter>
-    </ClCompile>
     <ClCompile Include="EstusFlask.cpp">
       <Filter>Archivos de origen\Actors\Items</Filter>
     </ClCompile>
@@ -142,7 +145,16 @@
       <Filter>Archivos de origen\Actors</Filter>
     </ClCompile>
     <ClCompile Include="MenuUpLevel.cpp">
-      <Filter>Archivos de origen\Actors</Filter>
+      <Filter>Archivos de origen\Actors\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthBar.cpp">
+      <Filter>Archivos de origen\Actors\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="SageCrystalStaff.cpp">
+      <Filter>Archivos de origen\Actors\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="MagicBall.cpp">
+      <Filter>Archivos de origen\Actors\Weapons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -203,9 +215,6 @@
     <ClInclude Include="Bonfire.h">
       <Filter>Archivos de encabezado\Actors\Items</Filter>
     </ClInclude>
-    <ClInclude Include="HealthBar.h">
-      <Filter>Archivos de encabezado\Actors</Filter>
-    </ClInclude>
     <ClInclude Include="EstusFlask.h">
       <Filter>Archivos de encabezado\Actors\Items</Filter>
     </ClInclude>
@@ -240,7 +249,16 @@
       <Filter>Archivos de encabezado\Actors</Filter>
     </ClInclude>
     <ClInclude Include="MenuUpLevel.h">
-      <Filter>Archivos de encabezado\Actors</Filter>
+      <Filter>Archivos de encabezado\Actors\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthBar.h">
+      <Filter>Archivos de encabezado\Actors\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="SageCrystalStaff.h">
+      <Filter>Archivos de encabezado\Actors\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="MagicBall.h">
+      <Filter>Archivos de encabezado\Actors\Weapons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

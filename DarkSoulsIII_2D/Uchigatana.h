@@ -21,6 +21,8 @@ public:
     int getHeightAttackUp() const override { return 68; }
     int getHeightAttackDown() const override { return 66; }
 
+    int getTotalFramesAttack() const override { return 6; }
+
     // MOVEMENT
     int getWidthMovementRight() const override { return 55; }
     int getWidthMovementLeft() const override { return 55; }
@@ -31,6 +33,8 @@ public:
     int getHeightMovementLeft() const override { return 53; }
     int getHeightMovementUp() const override { return 53; }
     int getHeightMovementDown() const override { return 53; }
+
+    int getTotalFramesMovement() const override { return 9; }
 
     // IDLE
     int getWidthIdleRight() const override { return 55; }
@@ -46,5 +50,7 @@ public:
     // DEATH
     int getWidthDeath() const override { return 35; }
     int getHeightDeath() const override { return 53; }
+
+    int getTotalFramesDeath() const override { return 6; }
 };
 

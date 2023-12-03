@@ -5,7 +5,6 @@ Arrow::Arrow(string filename, float x, float y, int w, int h, Game* game) :
 	damage = 20;
 }
 
-
 void Arrow::update() {
 	Projectile::update();
 }

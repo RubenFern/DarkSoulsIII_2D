@@ -3,7 +3,7 @@
 #define LIFE 250
 #define MANA 150
 #define TOTAL_CONSUMABLES 4
-#define TOTAL_WEAPONS 1
+#define TOTAL_WEAPONS 2
 
 #include "Actor.h"
 #include "Projectile.h"
@@ -20,6 +20,7 @@
 #include "FireGem.h"
 #include "FreezeGem.h"
 #include "FireKeeper.h"
+#include "SageCrystalStaff.h"
 
 class Player : public Actor
 {
