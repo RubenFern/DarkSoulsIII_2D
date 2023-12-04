@@ -177,6 +177,15 @@
     <ClCompile Include="Circular.cpp">
       <Filter>Archivos de origen\Actors\Enemies\Bosses\Attacks</Filter>
     </ClCompile>
+    <ClCompile Include="Thrust.cpp">
+      <Filter>Archivos de origen\Actors\Enemies\Bosses\Attacks</Filter>
+    </ClCompile>
+    <ClCompile Include="Magic.cpp">
+      <Filter>Archivos de origen\Actors\Enemies\Bosses\Attacks</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBall.cpp">
+      <Filter>Archivos de origen\Actors\Weapons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -289,6 +298,15 @@
     </ClInclude>
     <ClInclude Include="Circular.h">
       <Filter>Archivos de encabezado\Actors\Enemies\Bosses\Attacks</Filter>
+    </ClInclude>
+    <ClInclude Include="Thrust.h">
+      <Filter>Archivos de encabezado\Actors\Enemies\Bosses\Attacks</Filter>
+    </ClInclude>
+    <ClInclude Include="Magic.h">
+      <Filter>Archivos de encabezado\Actors\Enemies\Bosses\Attacks</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBall.h">
+      <Filter>Archivos de encabezado\Actors\Weapons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -153,6 +153,7 @@
     <ClCompile Include="Consumable.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EstusFlask.cpp" />
+    <ClCompile Include="FireBall.cpp" />
     <ClCompile Include="FireGem.cpp" />
     <ClCompile Include="FireKeeper.cpp" />
     <ClCompile Include="FreezeGem.cpp" />
@@ -161,6 +162,7 @@
     <ClCompile Include="HealthBar.cpp" />
     <ClCompile Include="Knight.cpp" />
     <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="Magic.cpp" />
     <ClCompile Include="MagicBall.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuLayer.cpp" />
@@ -172,6 +174,7 @@
     <ClCompile Include="Space.cpp" />
     <ClCompile Include="Sword.cpp" />
     <ClCompile Include="Text.cpp" />
+    <ClCompile Include="Thrust.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Uchigatana.cpp" />
     <ClCompile Include="UchigatanaBleeding.cpp" />
@@ -193,6 +196,7 @@
     <ClInclude Include="Consumable.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EstusFlask.h" />
+    <ClInclude Include="FireBall.h" />
     <ClInclude Include="FireGem.h" />
     <ClInclude Include="FireKeeper.h" />
     <ClInclude Include="FreezeGem.h" />
@@ -201,6 +205,7 @@
     <ClInclude Include="HealthBar.h" />
     <ClInclude Include="Knight.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="Magic.h" />
     <ClInclude Include="MagicBall.h" />
     <ClInclude Include="MenuLayer.h" />
     <ClInclude Include="MenuUpLevel.h" />
@@ -211,6 +216,7 @@
     <ClInclude Include="Space.h" />
     <ClInclude Include="Sword.h" />
     <ClInclude Include="Text.h" />
+    <ClInclude Include="Thrust.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Uchigatana.h" />
     <ClInclude Include="UchigatanaBleeding.h" />

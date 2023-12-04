@@ -135,7 +135,6 @@ void Enemy::update() {
 	if (freezeTime > 0)
 		freezeTime--;
 
-	cout << freezeTime << endl;
 	move();
 }
 

@@ -4,17 +4,19 @@ Blaidd::Blaidd(float x, float y, Game* game)
 	: Enemy("res/actors/bosses/blaidd/idle/down.png", x, y, 35, 45, game)
 {
 	life = 480;
-	damage = 105;
 	soulsValue = 5000;
 	attackTime = attackCadence;
 	orientation = game->orientationDown;
 	state = game->stateMoving;
 	contactDamage = false;
-	attackCadence = ATTACK_CADENCE;
 	attackTime = attackCadence;
 	
 	attacks[0] = new Circular(game);
-	selectedAttack = attacks[0];
+	attacks[1] = new Thrust(game);
+	attacks[2] = new Magic(game);
+	selectedAttack = attacks[2];
+	damage = selectedAttack->damage;
+	attackCadence = selectedAttack->cadence;
 
 	aAttackingRight = selectedAttack->aAttackingRight;
 	aAttackingLeft = selectedAttack->aAttackingLeft;
@@ -56,7 +58,8 @@ Projectile* Blaidd::attack()
 	int dx = playerPosition->x - x;
 	int dy = playerPosition->y - y;
 
-	if (state != game->stateDying && state != game->stateDead && attackTime == 0 && abs(dx) < ATTACK_DISTANCE && abs(dy) < ATTACK_DISTANCE)
+	if (state != game->stateDying && state != game->stateDead && attackTime == 0 
+		&& abs(dx) < selectedAttack->distanceAttack && abs(dy) < selectedAttack->distanceAttack)
 	{
 		vx = 0, vy = 0;
 		aAttackingLeft->currentFrame = 0; //"Rebobinar" animación
@@ -78,7 +81,9 @@ void Blaidd::changeAttack()
 	timeChangeAttack = TIME_CHANGE_ATTACK;
 	srand(time(0));
 	//selectedAttack = attacks[rand() % 3];
-	selectedAttack = attacks[0];
+	selectedAttack = attacks[2];
+	damage = selectedAttack->damage;
+	attackCadence = selectedAttack->cadence;
 
 	aAttackingRight = selectedAttack->aAttackingRight;
 	aAttackingLeft = selectedAttack->aAttackingLeft;

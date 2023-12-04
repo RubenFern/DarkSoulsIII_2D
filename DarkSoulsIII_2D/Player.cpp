@@ -17,8 +17,6 @@ Player::Player(float x, float y, Game* game)
 
 	loadCurrentWeapon();
 
-	souls = 1000;
-
 	animation = aIdleDown;
 }
 

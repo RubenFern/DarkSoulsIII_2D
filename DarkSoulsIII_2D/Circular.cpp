@@ -2,13 +2,15 @@
 #include "GameLayer.h"
 #include "Player.h"
 
-int widthArray[] = { 110, 110, 105, 106 };
-int heightArray[] = { 48, 48, 68, 63 };
+int widthArray1[] = { 110, 110, 105, 106 };
+int heightArray1[] = { 48, 48, 68, 63 };
 
 Circular::Circular(Game* game)
-	: Attack("blaidd/attack/1", widthArray, heightArray, 6, game)
+	: Attack("blaidd/attack/1", widthArray1, heightArray1, 6, game)
 {
+	distanceAttack = 40;
 	damage = 90;
+	cadence = 75;
 }
 
 Projectile* Circular::attack(int x, int y, int orientation)

@@ -1,13 +1,14 @@
 #pragma once
 
-#define ATTACK_DISTANCE 40
 #define TIME_CHANGE_ATTACK 100
-#define ATTACK_CADENCE 40
 #define ATTACKS 3
 
 #include "Enemy.h"
 #include "Attack.h"
 #include "Circular.h"
+#include "Thrust.h"
+#include "Magic.h"
+#include "Projectile.h"
 
 class Blaidd : public Enemy
 {
