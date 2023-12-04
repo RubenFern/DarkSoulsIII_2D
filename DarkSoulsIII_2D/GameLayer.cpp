@@ -503,39 +503,54 @@ void GameLayer::draw() {
 void GameLayer::gamePadToControls(SDL_Event event) {
 
 	// Leer los botones
+	bool buttonRB = SDL_GameControllerGetButton(gamePad, SDL_CONTROLLER_BUTTON_RIGHTSHOULDER);
 	bool buttonA = SDL_GameControllerGetButton(gamePad, SDL_CONTROLLER_BUTTON_A);
-	bool buttonB = SDL_GameControllerGetButton(gamePad, SDL_CONTROLLER_BUTTON_B);
-	// SDL_CONTROLLER_BUTTON_A, SDL_CONTROLLER_BUTTON_B
-	// SDL_CONTROLLER_BUTTON_X, SDL_CONTROLLER_BUTTON_Y
-	cout << "botones:" << buttonA << "," << buttonB << endl;
+	bool buttonX = SDL_GameControllerGetButton(gamePad, SDL_CONTROLLER_BUTTON_X);
+	bool buttonRightArrow = SDL_GameControllerGetButton(gamePad, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
+	bool buttonDownArrow = SDL_GameControllerGetButton(gamePad, SDL_CONTROLLER_BUTTON_DPAD_DOWN);
 	int stickX = SDL_GameControllerGetAxis(gamePad, SDL_CONTROLLER_AXIS_LEFTX);
+	int stickY = SDL_GameControllerGetAxis(gamePad, SDL_CONTROLLER_AXIS_LEFTY);
 	cout << "stickX" << stickX << endl;
+	cout << "stickY" << stickY << endl;
 
 	// Retorna aproximadamente entre [-32800, 32800], el centro debería estar en 0
 	// Si el mando tiene "holgura" el centro varia [-4000 , 4000]
-	if (stickX > 4000) {
+	if (stickX > 8000)
 		controlMoveX = 1;
-	}
-	else if (stickX < -4000) {
+	else if (stickX < -8000)
 		controlMoveX = -1;
-	}
-	else {
+	else
 		controlMoveX = 0;
-	}
 
-	if (buttonA) {
-		controlAttack = true;
-	}
-	else {
-		controlAttack = false;
-	}
-
-	if (buttonB) {
-		controlMoveY = -1; // Saltar
-	}
-	else {
+	if (stickY > 8000)
+		controlMoveY = 1;
+	else if (stickY < -8000)
+		controlMoveY = -1;
+	else
 		controlMoveY = 0;
+
+	if (buttonRB)
+		controlAttack = true;
+	else
+		controlAttack = false;
+
+	if (buttonA)	// interactuar
+	{
+		if (abs(player->x - fireKeeper->x) < 40 && abs(player->y - fireKeeper->y) < 40)
+		{
+			player->interact(fireKeeper);
+			isUpLevel = true;
+		}
 	}
+
+	if (buttonX)	// usar objeto
+		player->selectedConsumable->consume();
+
+	if (buttonRightArrow) 		// cambiar arma
+		player->nextWeapon();
+
+	if (buttonDownArrow)		// cambiar objeto consumible
+		player->nextConsumable();
 }
 
 
