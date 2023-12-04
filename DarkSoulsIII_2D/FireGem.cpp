@@ -6,6 +6,8 @@ FireGem::FireGem(float x, float y, Game* game) :
 	Consumable("res/actors/objects/firegem.jpg", x, y, 80, 80, game)
 {
 	text = new Text(to_string(num), WIDTH * 0.04, HEIGHT * 0.85, game);
+	name = "Gema de fuego";
+	pathImage = "firegem_icon.jpg";
 }
 
 void FireGem::update()

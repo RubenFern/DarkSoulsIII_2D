@@ -11,11 +11,13 @@ void Barrel::draw(float scrollX, float scrollY)
 	animation->draw(x - scrollX, y - scrollY);
 }
 
-void Barrel::destroy(Player* player)
+int Barrel::destroy(Player* player)
 {
 	srand(time(0));
-	int index = rand() % 3 + 1;
+	int index = rand() % 4;
 
 	player->consumables[index]->num++;
 	player->consumables[index]->text->content = std::to_string(player->consumables[index]->num);
+
+	return index;
 }

@@ -12,4 +12,6 @@ public:
 	virtual void update();
 	Text* text;
 	int num = 0;
+	string name;
+	string pathImage;
 };

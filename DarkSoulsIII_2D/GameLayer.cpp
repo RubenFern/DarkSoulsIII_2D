@@ -6,6 +6,7 @@ GameLayer::GameLayer(Game* game)
 	pause = true;
 	message = new Actor("res/mensaje_como_jugar.png", WIDTH * 0.5, HEIGHT * 0.5, WIDTH, HEIGHT, game);
 	menuUpLevel = new MenuUpLevel(game);
+	messageScreen = new Message(game);
 
 	gamePad = SDL_GameControllerOpen(0);
 	init();
@@ -255,6 +256,7 @@ void GameLayer::update() {
 
 	processDoor();
 
+	messageScreen->update();
 	space->update();
 	background->update();
 	player->update();
@@ -384,7 +386,9 @@ void GameLayer::update() {
 				if (!bInList)
 					deleteBarrels.push_back(barrel);
 
-				barrel->destroy(player);
+				int index = barrel->destroy(player);
+
+				messageScreen->setMessage(player->consumables[index]->name, "res/actors/objects/" + player->consumables[index]->pathImage, 32, 32);
 			}
 		}
 	}
@@ -490,6 +494,8 @@ void GameLayer::draw() {
 
 	if (isUpLevel)
 		menuUpLevel->draw();
+
+	messageScreen->draw();
 
 	SDL_RenderPresent(game->renderer); // Renderiza
 }

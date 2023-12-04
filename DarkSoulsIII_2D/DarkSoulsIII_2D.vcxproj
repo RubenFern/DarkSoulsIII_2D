@@ -169,6 +169,7 @@
     <ClCompile Include="ManaBar.cpp" />
     <ClCompile Include="MenuLayer.cpp" />
     <ClCompile Include="MenuUpLevel.cpp" />
+    <ClCompile Include="Message.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Projectile.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="ManaBar.h" />
     <ClInclude Include="MenuLayer.h" />
     <ClInclude Include="MenuUpLevel.h" />
+    <ClInclude Include="Message.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Projectile.h" />

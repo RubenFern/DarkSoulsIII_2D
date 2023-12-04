@@ -7,6 +7,8 @@ EstusFlask::EstusFlask(float x, float y, Game* game) :
 {
 	num = totalEstus;
 	text = new Text(to_string(num), WIDTH * 0.04, HEIGHT * 0.85, game);
+	name = "Estus";
+	pathImage = "estus_icon.jpg";
 }
 
 void EstusFlask::consume()

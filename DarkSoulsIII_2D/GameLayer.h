@@ -15,6 +15,7 @@
 #include "MenuUpLevel.h"
 #include "Blaidd.h"
 #include "Barrel.h"
+#include "Message.h"
 
 #include "Space.h" // importar
 
@@ -67,6 +68,8 @@ public:
 	list<Projectile*> projectilesEnemies;
 	list<Bonfire*> bonfires;
 	list<Barrel*> barrels;
+
+	Message* messageScreen;
 
 	Tile* doorLeft;
 	Tile* doorRight;

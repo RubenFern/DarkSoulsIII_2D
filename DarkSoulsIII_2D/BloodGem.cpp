@@ -6,6 +6,8 @@ BloodGem::BloodGem(float x, float y, Game* game) :
 	Consumable("res/actors/objects/bloodgem.jpg", x, y, 80, 82, game)
 {
 	text = new Text(to_string(num), WIDTH * 0.04, HEIGHT * 0.85, game);
+	name = "Gema de sangre";
+	pathImage = "bloodgem_icon.jpg";
 }
 
 void BloodGem::update()

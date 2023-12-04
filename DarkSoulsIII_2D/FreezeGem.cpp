@@ -6,6 +6,8 @@ FreezeGem::FreezeGem(float x, float y, Game* game) :
 	Consumable("res/actors/objects/freezegem.jpg", x, y, 80, 80, game)
 {
 	text = new Text(to_string(num), WIDTH * 0.04, HEIGHT * 0.85, game);
+	name = "Gema de congelación";
+	pathImage = "freezegem_icon.jpg";
 }
 
 void FreezeGem::update()

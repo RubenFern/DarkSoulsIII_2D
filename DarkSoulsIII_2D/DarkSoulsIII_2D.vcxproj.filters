@@ -192,6 +192,9 @@
     <ClCompile Include="Barrel.cpp">
       <Filter>Archivos de origen\Actors\Items</Filter>
     </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>Archivos de origen\Actors\HUD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -319,6 +322,9 @@
     </ClInclude>
     <ClInclude Include="Barrel.h">
       <Filter>Archivos de encabezado\Actors\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>Archivos de encabezado\Actors\HUD</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
