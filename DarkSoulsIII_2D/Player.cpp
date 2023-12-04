@@ -107,14 +107,23 @@ void Player::update() {
 
 	for (int i = 0; i < TOTAL_CONSUMABLES; i++)
 		consumables[i]->update();
+
+	if (timeFreeze > 0)
+		timeFreeze--;
 }
 
 void Player::moveX(float axis) {
-	vx = axis * 3;
+	if (timeFreeze == 0)
+		vx = axis * 3;
+	else
+		vx = 0;
 }
 
 void Player::moveY(float axis) {
-	vy = axis * 3;
+	if (timeFreeze == 0)
+		vy = axis * 3;
+	else 
+		vy = 0;
 }
 
 Projectile* Player::attack() {
@@ -174,7 +183,6 @@ void Player::loseLife(int damage) {
 			life -= damage;
 			invulnerableTime = 30;
 			healthBar->health = life;
-			// 100 actualizaciones 
 		}
 	}
 }

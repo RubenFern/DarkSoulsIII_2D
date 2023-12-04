@@ -11,8 +11,6 @@ public:
 	virtual Projectile* attack(int x, int y, int orientation);
 
 	int damage = 0;
-	bool freeze = false;
-	int frezzeTime = 40;
 
 	Game* game;
 	Animation* aAttackingRight;

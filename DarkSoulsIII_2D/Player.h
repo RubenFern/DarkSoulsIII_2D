@@ -49,6 +49,7 @@ public:
 	int state;
 	int souls = 0;
 	int damageBase = 0;
+	int timeFreeze = 0;
 
 	int costSoulsUpLife = 100;
 	int costSoulsUpMana = 100;

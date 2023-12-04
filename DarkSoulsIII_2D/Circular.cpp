@@ -1,4 +1,6 @@
 #include "Circular.h"
+#include "GameLayer.h"
+#include "Player.h"
 
 int widthArray[] = { 110, 110, 105, 106 };
 int heightArray[] = { 48, 48, 68, 63 };
@@ -7,7 +9,6 @@ Circular::Circular(Game* game)
 	: Attack("blaidd/attack/1", widthArray, heightArray, 6, game)
 {
 	damage = 90;
-	freeze = true;
 }
 
 Projectile* Circular::attack(int x, int y, int orientation)
@@ -27,6 +28,10 @@ Projectile* Circular::attack(int x, int y, int orientation)
 
 	p->vx = vx;
 	p->vy = vy;
+
+	Player* player = static_cast<GameLayer*>(game->gameLayer)->player;
+
+	player->timeFreeze = timeFreeze;
 
 	return p;
 }
