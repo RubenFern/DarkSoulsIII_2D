@@ -10,6 +10,7 @@ public:
 	Projectile* attack(float x, float y) override;
 	int attackCadence = 80;
 	int attackTime = 0;
+    int costMana = 35;
 
     // ATTACK
     int getWidthAttackRight() const override { return 97; }

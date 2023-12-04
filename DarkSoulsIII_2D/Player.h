@@ -21,6 +21,7 @@
 #include "FreezeGem.h"
 #include "FireKeeper.h"
 #include "SageCrystalStaff.h"
+#include "ManaBar.h"
 
 class Player : public Actor
 {
@@ -74,6 +75,7 @@ public:
 	Animation* animation; // Referencia a la animación mostrada
 	
 	HealthBar* healthBar;
+	ManaBar* manaBar;
 	Consumable* selectedConsumable;
 	Weapon* selectedWeapon;
 

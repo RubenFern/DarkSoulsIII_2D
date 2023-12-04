@@ -8,6 +8,7 @@ Player::Player(float x, float y, Game* game)
 	state = game->stateMoving;
 
 	healthBar = new HealthBar(life, 15, WIDTH * 0.02, HEIGHT * 0.04, game);
+	manaBar = new ManaBar(mana, 15, WIDTH * 0.02, HEIGHT * 0.08, game);
 	selectedWeapon = new Uchigatana(WIDTH * 0.13, HEIGHT * 0.90, game);
 
 	loadConsumables();
@@ -169,6 +170,7 @@ void Player::draw(float scrollX, float scrollY)
 			animation->draw(x - scrollX, y - scrollY);
 
 	healthBar->draw(healthBar->x, healthBar->y);
+	manaBar->draw(manaBar->x, manaBar->y);
 	selectedConsumable->draw(scrollX, scrollY);
 	selectedWeapon->draw(scrollX, scrollY);
 }

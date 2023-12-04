@@ -15,6 +15,7 @@ class Blaidd : public Enemy
 public:
 	Blaidd(float x, float y, Game* game);
 	Projectile* attack() override;
+	void draw(float scrollX = 0, float scrollY = 0) override;
 	void update() override;
 	void changeAttack();
 

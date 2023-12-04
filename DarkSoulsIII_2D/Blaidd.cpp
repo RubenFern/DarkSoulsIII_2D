@@ -35,7 +35,7 @@ Blaidd::Blaidd(float x, float y, Game* game)
 
 	aDeath = new Animation("res/actors/bosses/blaidd/death/death.png", 40, 46, 240, 46, 6, 6, false, game);
 
-	//healthBar = new HealthBar(life, 5, x - 22, y - 34, game);
+	healthBar = new HealthBar(life, 20, WIDTH * 0.2, HEIGHT * 0.91, game);
 
 	vx = 0;
 	vxIntelligence = 2;
@@ -89,4 +89,11 @@ void Blaidd::changeAttack()
 	aAttackingLeft = selectedAttack->aAttackingLeft;
 	aAttackingUp = selectedAttack->aAttackingUp;
 	aAttackingDown = selectedAttack->aAttackingDown;
+}
+
+void Blaidd::draw(float scrollX, float scrollY)
+{
+	animation->draw(x - scrollX, y - scrollY);
+	
+	healthBar->draw(healthBar->x, healthBar->y);
 }

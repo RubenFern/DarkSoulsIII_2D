@@ -21,5 +21,12 @@ Projectile* SageCrystalStaff::attack(float x, float y)
 	p->vy = 0;
 	p->damage = damage;
 
+	player->mana -= costMana;
+
+	if (player->mana < 0)
+		player->mana = 0;
+	
+	player->manaBar->mana = player->mana;
+
 	return p;
 }
