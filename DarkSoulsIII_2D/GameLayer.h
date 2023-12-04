@@ -13,6 +13,7 @@
 #include "Consumable.h"
 #include "FireKeeper.h"
 #include "MenuUpLevel.h"
+#include "Blaidd.h"
 
 #include "Space.h" // importar
 

@@ -15,6 +15,11 @@ ATTACK
 	right	w: 73, h: 48
 	down	w: 35, h: 68
 	up	w: 39, h: 74
+3
+	left	w: 36, h: 46
+	right	w: 36, h: 46
+	down	w: 50, h: 45
+	up	w: 50, h: 44
 
 MOVE
 	left	w: 46, h: 53

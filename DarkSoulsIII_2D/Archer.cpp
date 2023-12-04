@@ -31,7 +31,6 @@ Archer::Archer(float x, float y, Game* game)
 	healthBar = new HealthBar(life, 5, x - 22, y - 34, game);
 
 	vx = 0;
-	vxIntelligence = 0;
 	vx = vxIntelligence;
 	animation = aIdleDown;
 }

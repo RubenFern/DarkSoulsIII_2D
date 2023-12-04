@@ -49,6 +49,18 @@
     <Filter Include="Archivos de origen\Actors\HUD">
       <UniqueIdentifier>{ee132a71-ad7a-4c55-a3b2-8a2e8ab46bb9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Actors\Enemies\Bosses">
+      <UniqueIdentifier>{8c7c62d4-5641-4895-a0ad-935d0fd25bae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Actors\Enemies\Bosses">
+      <UniqueIdentifier>{9ba0c2f4-36c3-4261-9d85-5d4c43a0e9c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Actors\Enemies\Bosses\Attacks">
+      <UniqueIdentifier>{1e7aa750-a39a-4735-8407-dbab17effb6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Actors\Enemies\Bosses\Attacks">
+      <UniqueIdentifier>{8e3f8f8e-8708-4ba2-aa9f-2593ff862a9c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -156,6 +168,15 @@
     <ClCompile Include="MagicBall.cpp">
       <Filter>Archivos de origen\Actors\Weapons</Filter>
     </ClCompile>
+    <ClCompile Include="Blaidd.cpp">
+      <Filter>Archivos de origen\Actors\Enemies\Bosses</Filter>
+    </ClCompile>
+    <ClCompile Include="Attack.cpp">
+      <Filter>Archivos de origen\Actors\Enemies\Bosses\Attacks</Filter>
+    </ClCompile>
+    <ClCompile Include="Circular.cpp">
+      <Filter>Archivos de origen\Actors\Enemies\Bosses\Attacks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -259,6 +280,15 @@
     </ClInclude>
     <ClInclude Include="MagicBall.h">
       <Filter>Archivos de encabezado\Actors\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Blaidd.h">
+      <Filter>Archivos de encabezado\Actors\Enemies\Bosses</Filter>
+    </ClInclude>
+    <ClInclude Include="Attack.h">
+      <Filter>Archivos de encabezado\Actors\Enemies\Bosses\Attacks</Filter>
+    </ClInclude>
+    <ClInclude Include="Circular.h">
+      <Filter>Archivos de encabezado\Actors\Enemies\Bosses\Attacks</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

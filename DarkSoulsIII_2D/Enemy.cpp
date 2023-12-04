@@ -4,6 +4,7 @@ Enemy::Enemy(string filename, float x, float y, int width, int height, Game* gam
 	: Actor(filename, x, y, width, height, game) 
 {
 	healthBar = new HealthBar(life, 5, x - 22, y - 34, game);
+	vxIntelligence = 1;
 }
 
 void Enemy::draw(float scrollX, float scrollY) {
@@ -192,13 +193,13 @@ void Enemy::move()
 		{
 			orientation = game->orientationLeft;
 			animation = aRunningLeft;
-			vx = -1;
+			vx = vxIntelligence * -1;
 		}
 		else
 		{
 			orientation = game->orientationRight;
 			animation = aRunningRight;
-			vx = 1;
+			vx = vxIntelligence;
 		}
 	}
 
@@ -209,13 +210,13 @@ void Enemy::move()
 		{
 			orientation = game->orientationUp;
 			animation = aRunningUp;
-			vy = -1;
+			vy = vxIntelligence * -1;
 		}
 		else
 		{
 			orientation = game->orientationDown;
 			animation = aRunningDown;
-			vy = 1;
+			vy = vxIntelligence;
 		}
 	}
 
@@ -227,28 +228,28 @@ void Enemy::move()
 		{
 			orientation = game->orientationRight;
 			animation = aRunningRight;
-			vx = 1;
+			vx = vxIntelligence;
 		}
 		// Esquina superior derecha
 		else if (dx < -20 && dy < -20)
 		{
 			orientation = game->orientationLeft;
 			animation = aRunningLeft;
-			vx = -1;
+			vx = vxIntelligence * -1;
 		}
 		// Esquina inferior izquierda
 		else if (dx > 20 && dy > 20)
 		{
 			orientation = game->orientationRight;
 			animation = aRunningRight;
-			vx = 1;
+			vx = vxIntelligence;
 		}
 		// Esquina inferior derecha
 		else if (dx < -20 && dy > 20)
 		{
 			orientation = game->orientationLeft;
 			animation = aRunningLeft;
-			vx = -1;
+			vx = vxIntelligence * -1;
 		}
 		else
 		{
