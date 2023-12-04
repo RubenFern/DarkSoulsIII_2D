@@ -39,5 +39,8 @@ void FireGem::consume()
 	ub->stateBleeding = false;
 	ub->stateFreezing = false;
 
+	num--;
+	text->content = std::to_string(num);
+
 	player->setSelectedWeapon(ub);
 }

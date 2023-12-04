@@ -146,6 +146,7 @@
     <ClCompile Include="Attack.cpp" />
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Barrel.cpp" />
     <ClCompile Include="Blaidd.cpp" />
     <ClCompile Include="BloodGem.cpp" />
     <ClCompile Include="Bonfire.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="Attack.h" />
     <ClInclude Include="Audio.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="Barrel.h" />
     <ClInclude Include="Blaidd.h" />
     <ClInclude Include="BloodGem.h" />
     <ClInclude Include="Bonfire.h" />

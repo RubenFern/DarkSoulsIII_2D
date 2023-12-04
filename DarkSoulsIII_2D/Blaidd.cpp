@@ -14,7 +14,7 @@ Blaidd::Blaidd(float x, float y, Game* game)
 	attacks[0] = new Circular(game);
 	attacks[1] = new Thrust(game);
 	attacks[2] = new Magic(game);
-	selectedAttack = attacks[2];
+	selectedAttack = attacks[0];
 	damage = selectedAttack->damage;
 	attackCadence = selectedAttack->cadence;
 
@@ -80,8 +80,7 @@ void Blaidd::changeAttack()
 {
 	timeChangeAttack = TIME_CHANGE_ATTACK;
 	srand(time(0));
-	//selectedAttack = attacks[rand() % 3];
-	selectedAttack = attacks[2];
+	selectedAttack = attacks[rand() % 3];
 	damage = selectedAttack->damage;
 	attackCadence = selectedAttack->cadence;
 

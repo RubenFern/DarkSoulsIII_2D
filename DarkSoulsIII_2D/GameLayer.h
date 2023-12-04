@@ -14,6 +14,7 @@
 #include "FireKeeper.h"
 #include "MenuUpLevel.h"
 #include "Blaidd.h"
+#include "Barrel.h"
 
 #include "Space.h" // importar
 
@@ -65,6 +66,7 @@ public:
 	list<Projectile*> projectiles;
 	list<Projectile*> projectilesEnemies;
 	list<Bonfire*> bonfires;
+	list<Barrel*> barrels;
 
 	Tile* doorLeft;
 	Tile* doorRight;

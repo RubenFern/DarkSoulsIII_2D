@@ -39,5 +39,8 @@ void FreezeGem::consume()
 	uf->stateBleeding = false;
 	uf->stateFreezing = true;
 
+	num--;
+	text->content = std::to_string(num);
+
 	player->setSelectedWeapon(uf);
 }

@@ -166,6 +166,18 @@ void GameLayer::loadMapObject(char character, float x, float y)
 		space->addDynamicActor(enemy);
 		break;
 	}
+	case 'R': {
+		Tile* tile = new Tile("res/blocks/floor.png", x, y, game);
+		tile->y = tile->y - tile->height / 2;
+		tiles.push_back(tile);
+
+		Barrel* barrel = new Barrel(x, y, game);
+		barrel->y = barrel->y - barrel->height / 2;
+		tiles.push_back(barrel);
+		space->addStaticActor(barrel);
+		barrels.push_back(barrel);
+		break;
+	}
 	}
 }
 
@@ -274,6 +286,7 @@ void GameLayer::update() {
 	list<Enemy*> deleteEnemies;
 	list<Projectile*> deleteProjectiles;
 	list<Projectile*> deleteProjectilesEnemies;
+	list<Barrel*> deleteBarrels;
 	for (auto const& projectile : projectiles) {
 		if (projectile->isInRender(scrollX, scrollY) == false || (projectile->vx == 0 && projectile->vy == 0) 
 			|| (dynamic_cast<Sword*>(projectile) != nullptr && dynamic_cast<Sword*>(projectile)->lifeTime == 0)) {
@@ -351,6 +364,31 @@ void GameLayer::update() {
 		}
 	}
 
+	for (auto const& barrel : barrels)
+	{
+		for (auto const& projectile : projectiles)
+		{
+			if (barrel->isOverlap(projectile))
+			{
+				bool pInList = std::find(deleteProjectiles.begin(),
+					deleteProjectiles.end(),
+					projectile) != deleteProjectiles.end();
+
+				if (!pInList)
+					deleteProjectiles.push_back(projectile);
+
+				bool bInList = std::find(deleteBarrels.begin(),
+					deleteBarrels.end(),
+					barrel) != deleteBarrels.end();
+
+				if (!bInList)
+					deleteBarrels.push_back(barrel);
+
+				barrel->destroy(player);
+			}
+		}
+	}
+
 	for (auto const& delEnemy : deleteEnemies) {
 		enemies.remove(delEnemy);
 		space->removeDynamicActor(delEnemy);
@@ -370,6 +408,14 @@ void GameLayer::update() {
 		delete delProjectileEnemy;
 	}
 	deleteProjectilesEnemies.clear();
+
+	for (auto const& delBarrel : deleteBarrels) {
+		barrels.remove(delBarrel);
+		space->removeStaticActor(delBarrel);
+		tiles.remove(delBarrel);
+		delete delBarrel;
+	}
+	deleteBarrels.clear();
 
 	if (player->life <= 0) 
 	{

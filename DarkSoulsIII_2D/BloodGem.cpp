@@ -39,5 +39,8 @@ void BloodGem::consume()
 	ub->stateBleeding = true;
 	ub->stateFreezing = false;
 
+	num--;
+	text->content = std::to_string(num);
+
 	player->setSelectedWeapon(ub);
 }
