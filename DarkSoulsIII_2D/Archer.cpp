@@ -37,6 +37,9 @@ Archer::Archer(float x, float y, Game* game)
 
 Projectile* Archer::attack()
 {
+	if (!canViewPlayer())
+		return NULL;
+
 	if (freezeTime > 0)
 		return NULL;
 

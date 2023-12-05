@@ -1,4 +1,5 @@
 #include "Enemy.h"
+#include "GameLayer.h"
 
 Enemy::Enemy(string filename, float x, float y, int width, int height, Game* game)
 	: Actor(filename, x, y, width, height, game) 
@@ -140,6 +141,9 @@ void Enemy::update() {
 
 void Enemy::move()
 {
+	if (!canViewPlayer())
+		return;
+
 	if (freezeTime > 0)
 		return;
 
@@ -282,4 +286,44 @@ void Enemy::move()
 Projectile* Enemy::attack() 
 {
 	return NULL;
+}
+
+bool Enemy::canViewPlayer()
+{
+	Point* playerPosition = game->getCurrentPlayerPosition();
+
+	int dx = playerPosition->x - x;
+	int dy = playerPosition->y - y;
+
+	if (abs(dx) > VISION_FIELD && abs(dy) > VISION_FIELD)
+		return false;
+
+	// Si hay un muro entre el jugador y el enemigo
+	GameLayer* gameLayer = static_cast<GameLayer*>(game->gameLayer);
+
+	int numF = 0, numD = 0, numR = 0, numL = 0;
+
+	for (auto const& wall : gameLayer->space->staticActors)
+	{
+		if (wall->x == x && dy != 0) // Mismo eje X pero posiciones verticales diferentes
+		{
+			int minY = std::min(y, playerPosition->y);
+			int maxY = std::max(y, playerPosition->y);
+			if (wall->y > minY && wall->y < maxY)
+			{
+				return false; // Hay un muro entre el jugador y el enemigo
+			}
+		}
+		else if (wall->y == y && dx != 0) // Mismo eje Y pero posiciones horizontales diferentes
+		{
+			int minX = std::min(x, playerPosition->x);
+			int maxX = std::max(x, playerPosition->x);
+			if (wall->x > minX && wall->x < maxX)
+			{
+				return false; // Hay un muro entre el jugador y el enemigo
+			}
+		}
+	}
+
+	return true;
 }

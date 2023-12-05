@@ -1,7 +1,7 @@
 #pragma once
 
 #define ERROR 50
-#define VISION_FIELD 175
+#define VISION_FIELD 200
 
 #include "Actor.h"
 #include "Animation.h"
@@ -19,6 +19,7 @@ public:
 	virtual void update();
 	virtual void impacted(Player* player); // Recibe impacto y pone animación de morir
 	virtual void move();
+	bool canViewPlayer();
 	float vxIntelligence;
 	int state;
 	int attackCadence = 30;

@@ -37,6 +37,9 @@ Knight::Knight(float x, float y, Game* game)
 
 Projectile* Knight::attack()
 {
+	if (!canViewPlayer())
+		return NULL;
+
 	if (freezeTime > 0)
 		return NULL;
 

@@ -57,6 +57,9 @@ void Blaidd::update()
 
 Projectile* Blaidd::attack()
 {
+	if (!canViewPlayer())
+		return NULL;
+
 	Point* playerPosition = game->getCurrentPlayerPosition();
 
 	int dx = playerPosition->x - x;

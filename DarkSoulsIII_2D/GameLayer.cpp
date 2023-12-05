@@ -156,6 +156,24 @@ void GameLayer::loadMapObject(char character, float x, float y)
 		tiles.push_back(doorLeft);
 		break;
 	}
+	case 'H': { 	// Puerta derecha
+		doorRight = new Tile("res/blocks/door-right.png", x, y, game);
+		doorRight->y = doorRight->y - doorRight->height / 2;
+		tiles.push_back(doorRight);
+		break;
+	}
+	case 'J': {		// Puerta arriba
+		doorUp = new Tile("res/blocks/door-up.png", x, y, game);
+		doorUp->y = doorUp->y - doorUp->height / 2;
+		tiles.push_back(doorUp);
+		break;
+	}
+	case 'G': {		// Puerta abajo
+		doorDown = new Tile("res/blocks/door-down.png", x, y, game);
+		doorDown->y = doorDown->y - doorDown->height / 2;
+		tiles.push_back(doorDown);
+		break;
+	}
 	case 'K': {		// Caballero
 		Tile* tile = new Tile("res/blocks/floor.png", x, y, game);
 		tile->y = tile->y - tile->height / 2;
@@ -191,7 +209,7 @@ void GameLayer::loadMapObject(char character, float x, float y)
 		space->addDynamicActor(enemy);
 		break;
 	}
-	case 'R': {
+	case 'R': {		// Barril
 		Tile* tile = new Tile("res/blocks/floor.png", x, y, game);
 		tile->y = tile->y - tile->height / 2;
 		tiles.push_back(tile);
@@ -726,22 +744,22 @@ void GameLayer::impactedPlayer(Projectile* p) {
 void GameLayer::processDoor() {
 	if (doorLeft != NULL && player->isOverlap(doorLeft)) {
 		crossDoor = true;
-		game->currentLevel = 1;
+		game->currentLevel = 0;
 		init();
 	}
 	if (doorRight != NULL && player->isOverlap(doorRight)) {
 		crossDoor = true;
-		game->currentLevel = 2;
+		game->currentLevel = 1;
 		init();
 	}
 	if (doorUp != NULL && player->isOverlap(doorUp)) {
 		crossDoor = true;
-		game->currentLevel = 3;
+		game->currentLevel = 1;
 		init();
 	}
 	if (doorDown != NULL && player->isOverlap(doorDown)) {
 		crossDoor = true;
-		game->currentLevel = 3;
+		game->currentLevel = 2;
 		init();
 	}
 }
