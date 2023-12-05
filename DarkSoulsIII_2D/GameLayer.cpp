@@ -108,7 +108,13 @@ void GameLayer::loadMapObject(char character, float x, float y)
 		tile->y = tile->y - tile->height / 2;
 		tiles.push_back(tile);
 
-		player = new Player(x, y, game);
+		if (player == NULL)
+			player = new Player(x, y, game);
+		else
+		{
+			player->x = x;
+			player->y = y;
+		}
 		// modificación para empezar a contar desde el suelo.
 		player->y = player->y - player->height / 2;
 		space->addDynamicActor(player);
@@ -678,6 +684,7 @@ void GameLayer::keysToControls(SDL_Event event) {
 				player->souls -= player->costSoulsUpLife;
 				player->costSoulsUpLife *= 2;
 				player->life += 20;
+				player->maxLife += 20;
 				textSouls->content = to_string(player->souls);
 				player->healthBar->health = player->life;
 				player->healthBar->width = player->life;
@@ -689,6 +696,7 @@ void GameLayer::keysToControls(SDL_Event event) {
 				player->souls -= player->costSoulsUpMana;
 				player->costSoulsUpMana *= 2;
 				player->mana += 20;
+				player->maxMana += 20;
 				textSouls->content = to_string(player->souls);
 			}
 			break;

@@ -43,8 +43,10 @@ public:
 	void interact(FireKeeper* fireKeeper);
 	int getDamage();
 
-	int life = LIFE;
-	int mana = MANA;
+	int maxLife = LIFE;
+	int maxMana = MANA;
+	int life = maxLife;
+	int mana = maxMana;
 	int invulnerableTime = 0;
 	int orientation;
 	int state;

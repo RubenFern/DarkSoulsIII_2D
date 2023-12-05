@@ -207,9 +207,14 @@ void Player::nextConsumable()
 
 void Player::restoreLife() 
 {
-	life = LIFE;
+	life = maxLife;
 	healthBar->health = life;
+	mana = maxMana;
+	manaBar->mana = mana;
 	
+	if (consumables[0]->num > static_cast<EstusFlask*>(consumables[0])->totalEstus)
+		return;
+
 	consumables[0]->num = static_cast<EstusFlask*>(consumables[0])->totalEstus;
 	consumables[0]->text->content = to_string(consumables[0]->num);
 }
