@@ -4,7 +4,7 @@ GameLayer::GameLayer(Game* game)
 	: Layer(game) {
 	//llama al constructor del padre : Layer(renderer)
 	pause = true;
-	message = new Actor("res/mensaje_como_jugar.png", WIDTH * 0.5, HEIGHT * 0.5, WIDTH, HEIGHT, game);
+	message = new Actor("res/menu/tutorial.png", WIDTH * 0.5, HEIGHT * 0.5, 846, 477, game);
 	menuUpLevel = new MenuUpLevel(game);
 	messageScreen = new Message(game);
 
@@ -23,13 +23,14 @@ void GameLayer::init() {
 	textSouls = new Text("hola", WIDTH * 0.95, HEIGHT * 0.94, game);
 	textSouls->content = to_string(0);
 
+	message = new Actor("res/menu/tutorial.png", WIDTH * 0.5, HEIGHT * 0.5, 846, 477, game);
 	background = new Background("res/fondo.png", WIDTH * 0.5, HEIGHT * 0.5, 0, game);
 
-	enemies.clear(); // Vaciar por si reiniciamos el juego
-	projectiles.clear(); // Vaciar por si reiniciamos el juego
-	projectilesEnemies.clear(); // Vaciar por si reiniciamos el juego
-	bonfires.clear(); // Vaciar por si reiniciamos el juego
-	barrels.clear(); // Vaciar por si reiniciamos el juego
+	enemies.clear(); 
+	projectiles.clear(); 
+	projectilesEnemies.clear(); 
+	bonfires.clear();
+	barrels.clear(); 
 
 	int level = 0;
 
@@ -611,6 +612,9 @@ void GameLayer::keysToControls(SDL_Event event) {
 		switch (code) {
 		case SDLK_ESCAPE:
 			game->loopActive = false;
+			break;
+		case SDLK_p:
+			pause = true;
 			break;
 		case SDLK_1:
 			game->scale();
