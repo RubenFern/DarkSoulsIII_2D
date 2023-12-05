@@ -7,8 +7,6 @@ Audio::Audio(string filename, bool loop) {
 		// Uso la Librería Mixer - mp3
 		Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096); // 2 canales
 		mix = Mix_LoadMUS(filename.c_str());
-
-		Mix_VolumeMusic(20); // 0 a 128
 	}
 	else {
 		// Uso SDL audio standard
