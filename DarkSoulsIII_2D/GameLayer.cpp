@@ -33,9 +33,13 @@ void GameLayer::init() {
 	barrels.clear(); 
 
 	int level = 0;
+	bool loadFromBonfire = false;
 
 	if (currentBonfire != NULL && !playerWin && !crossDoor)
+	{
 		level = currentBonfire->level;
+		loadFromBonfire = true;
+	}
 	else if (playerWin)
 	{
 		level = 0;
@@ -50,7 +54,7 @@ void GameLayer::init() {
 
 	loadMap("res/" + to_string(level) + ".txt");
 
-	if (currentBonfire != NULL && !playerWin)
+	if (currentBonfire != NULL && !playerWin && loadFromBonfire)
 	{
 		player->x = currentBonfire->playerX;
 		player->y = currentBonfire->playerY;
