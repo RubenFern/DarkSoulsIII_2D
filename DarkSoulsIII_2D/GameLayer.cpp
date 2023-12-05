@@ -698,6 +698,8 @@ void GameLayer::keysToControls(SDL_Event event) {
 				player->mana += 20;
 				player->maxMana += 20;
 				textSouls->content = to_string(player->souls);
+				player->manaBar->mana = player->mana;
+				player->manaBar->width = player->mana;
 			}
 			break;
 		case SDLK_4: // Subir ataque
