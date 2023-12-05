@@ -11,3 +11,10 @@ void Bonfire::draw(float scrollX, float scrollY)
 	animation->update();
 	animation->draw(x - scrollX, y - scrollY);
 }
+
+void Bonfire::savePositionPlayer(int x, int y, int level)
+{
+	playerX = x;
+	playerY = y;
+	this->level = level;
+}

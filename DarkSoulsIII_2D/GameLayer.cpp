@@ -30,7 +30,28 @@ void GameLayer::init() {
 	projectilesEnemies.clear(); // Vaciar por si reiniciamos el juego
 	bonfires.clear(); // Vaciar por si reiniciamos el juego
 
-	loadMap("res/" + to_string(game->currentLevel) + ".txt");
+	int level = 0;
+
+	if (currentBonfire != NULL && !playerWin && !crossDoor)
+		level = currentBonfire->level;
+	else if (playerWin)
+	{
+		level = 0;
+		currentBonfire = NULL;
+	}
+	else
+	{
+		level = game->currentLevel;
+		crossDoor = false;
+	}
+
+	loadMap("res/" + to_string(level) + ".txt");
+
+	if (currentBonfire != NULL && !playerWin)
+	{
+		player->x = currentBonfire->playerX;
+		player->y = currentBonfire->playerY;
+	}
 }
 
 void GameLayer::playMusic() {
@@ -254,6 +275,15 @@ void GameLayer::update() {
 	if (pause || isUpLevel)
 		return;
 
+	if (playerWin)
+	{
+		message = new Actor("res/menu/you_win.png", WIDTH * 0.5, HEIGHT * 0.5, WIDTH, 115, game);
+		pause = true;
+
+		init();
+		return;
+	}
+
 	processDoor();
 
 	messageScreen->update();
@@ -265,7 +295,11 @@ void GameLayer::update() {
 
 	for (auto const& bonfire : bonfires)
 		if (player->isOverlap(bonfire))
+		{
+			currentBonfire = bonfire;
+			bonfire->savePositionPlayer(player->x, player->y, game->currentLevel);
 			player->restoreLife();
+		}
 
 	for (auto const& enemy : enemies)
 		enemy->update();
@@ -423,6 +457,9 @@ void GameLayer::update() {
 
 	if (player->life <= 0) 
 	{
+		message = new Actor("res/menu/you_died.png", WIDTH * 0.5, HEIGHT * 0.5, WIDTH, 98, game);
+		pause = true;
+			
 		init();
 		return;
 	}
@@ -729,19 +766,22 @@ void GameLayer::impactedPlayer(Projectile* p) {
 
 void GameLayer::processDoor() {
 	if (doorLeft != NULL && player->isOverlap(doorLeft)) {
-		cout << "Puerta izquierda" << endl;
+		crossDoor = true;
 		game->currentLevel = 1;
 		init();
 	}
 	if (doorRight != NULL && player->isOverlap(doorRight)) {
+		crossDoor = true;
 		game->currentLevel = 2;
 		init();
 	}
 	if (doorUp != NULL && player->isOverlap(doorUp)) {
+		crossDoor = true;
 		game->currentLevel = 3;
 		init();
 	}
 	if (doorDown != NULL && player->isOverlap(doorDown)) {
+		crossDoor = true;
 		game->currentLevel = 3;
 		init();
 	}

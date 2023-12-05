@@ -47,6 +47,8 @@ public:
 	bool pause;
 	bool playingMusic;
 	bool isUpLevel;
+	bool playerWin;
+	bool crossDoor;
 	// Elementos de interfaz
 	SDL_GameController* gamePad;
 
@@ -68,6 +70,7 @@ public:
 	list<Projectile*> projectilesEnemies;
 	list<Bonfire*> bonfires;
 	list<Barrel*> barrels;
+	Bonfire* currentBonfire;
 
 	Message* messageScreen;
 

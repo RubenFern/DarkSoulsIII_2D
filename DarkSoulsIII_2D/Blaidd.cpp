@@ -1,4 +1,5 @@
 #include "Blaidd.h"
+#include "GameLayer.h"
 
 Blaidd::Blaidd(float x, float y, Game* game)
 	: Enemy("res/actors/bosses/blaidd/idle/down.png", x, y, 35, 45, game)
@@ -46,6 +47,9 @@ void Blaidd::update()
 {
 	Enemy::update();
 	timeChangeAttack--;
+
+	if (life <= 0)
+		static_cast<GameLayer*>(game->gameLayer)->playerWin = true;
 
 	if (timeChangeAttack == 0)
 		changeAttack();
